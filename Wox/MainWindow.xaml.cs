@@ -104,32 +104,32 @@ namespace Wox
                 Icon = Properties.Resources.app,
                 Visible = true
             };
-            var menu = new ContextMenuStrip();
-            var items = menu.Items;
+            //var menu = new ContextMenuStrip();
+            //var items = menu.Items;
 
-            var open = items.Add(InternationalizationManager.Instance.GetTranslation("iconTrayOpen"));
-            open.Click += (o, e) => Visibility = Visibility.Visible;
-            var setting = items.Add(InternationalizationManager.Instance.GetTranslation("iconTraySettings"));
-            setting.Click += (o, e) => App.API.OpenSettingDialog();
-            var exit = items.Add(InternationalizationManager.Instance.GetTranslation("iconTrayExit"));
-            exit.Click += (o, e) => Close();
+            //var open = items.Add(InternationalizationManager.Instance.GetTranslation("iconTrayOpen"));
+            //open.Click += (o, e) => Visibility = Visibility.Visible;
+            //var setting = items.Add(InternationalizationManager.Instance.GetTranslation("iconTraySettings"));
+            //setting.Click += (o, e) => App.API.OpenSettingDialog();
+            //var exit = items.Add(InternationalizationManager.Instance.GetTranslation("iconTrayExit"));
+            //exit.Click += (o, e) => Close();
 
-            _notifyIcon.ContextMenuStrip = menu;
-            _notifyIcon.MouseClick += (o, e) =>
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    if (menu.Visible)
-                    {
-                        menu.Close();
-                    }
-                    else
-                    {
-                        var p = System.Windows.Forms.Cursor.Position;
-                        menu.Show(p);
-                    }
-                }
-            };
+            //_notifyIcon.ContextMenuStrip = menu;
+            //_notifyIcon.MouseClick += (o, e) =>
+            //{
+            //    if (e.Button == MouseButtons.Left)
+            //    {
+            //        if (menu.Visible)
+            //        {
+            //            menu.Close();
+            //        }
+            //        else
+            //        {
+            //            var p = System.Windows.Forms.Cursor.Position;
+            //            menu.Show(p);
+            //        }
+            //    }
+            //};
         }
 
         private void InitProgressbarAnimation()

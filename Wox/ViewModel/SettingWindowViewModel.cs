@@ -317,7 +317,7 @@ namespace Wox.ViewModel
         #region about
 
         public static string Github => Constant.Repository;
-        public static string ReleaseNotes => @"https://github.com/Wox-launcher/Wox/releases/latest";
+        //public static string ReleaseNotes => @"https://github.com/Wox-launcher/Wox/releases/latest";
         public static string Version => Constant.Version;
         public string ActivatedTimes => string.Format(_translater.GetTranslation("about_activate_times"), Settings.ActivateTimes);
         #endregion

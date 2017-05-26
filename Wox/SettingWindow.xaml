@@ -374,13 +374,13 @@
                 </TextBlock>
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource version}" />
                 <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Version}" />
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource releaseNotes}" />
+                <!--<TextBlock Grid.Row="3" Grid.Column="0" Text="{DynamicResource releaseNotes}" />
                 <TextBlock Grid.Row="3" Grid.Column="1">
                     <Hyperlink NavigateUri="{Binding ReleaseNotes, Mode=OneWay}"
                                RequestNavigate="OnRequestNavigate">
                         <Run Text="{Binding ReleaseNotes, Mode=OneWay}" />
                     </Hyperlink>
-                </TextBlock>
+                </TextBlock>-->
                 <Button Grid.Row="4" Grid.Column="0"
                         Content="{DynamicResource checkUpdates}" Click="OnCheckUpdates"
                         HorizontalAlignment="Left" Margin="10 10 10 10" />
