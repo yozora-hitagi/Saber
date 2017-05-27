@@ -48,7 +48,7 @@ namespace Wox
 
         private void OnAutoStartupChecked(object sender, RoutedEventArgs e)
         {
-            SetStartup();
+             SetStartup();
         }
 
         private void OnAutoStartupUncheck(object sender, RoutedEventArgs e)
@@ -304,10 +304,10 @@ namespace Wox
 
         #endregion
 
-        private async void OnCheckUpdates(object sender, RoutedEventArgs e)
-        {
-            await Updater.UpdateApp();
-        }
+        //private async void OnCheckUpdates(object sender, RoutedEventArgs e)
+        //{
+        //    await Updater.UpdateApp();
+        //}
 
         private void OnRequestNavigate(object sender, RequestNavigateEventArgs e)
         {

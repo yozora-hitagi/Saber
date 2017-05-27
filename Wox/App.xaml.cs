@@ -99,22 +99,22 @@ namespace Wox
         [Conditional("RELEASE")]
         private void AutoUpdates()
         {
-            Task.Run(async () =>
-            {
-                if (_settings.AutoUpdates)
-                {
-                    // check udpate every 5 hours
-                    var timer = new Timer(1000 * 60 * 60 * 5);
-                    timer.Elapsed += async (s, e) =>
-                    {
-                        await Updater.UpdateApp();
-                    };
-                    timer.Start();
+            //Task.Run(async () =>
+            //{
+            //    if (_settings.AutoUpdates)
+            //    {
+            //        // check udpate every 5 hours
+            //        var timer = new Timer(1000 * 60 * 60 * 5);
+            //        timer.Elapsed += async (s, e) =>
+            //        {
+            //            await Updater.UpdateApp();
+            //        };
+            //        timer.Start();
 
-                    // check updates on startup
-                    await Updater.UpdateApp();
-                }
-            });
+            //        // check updates on startup
+            //        await Updater.UpdateApp();
+            //    }
+            //});
         }
 
         private void RegisterExitEvents()
