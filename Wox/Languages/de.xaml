@@ -15,7 +15,7 @@
     <system:String x:Key="iconTrayExit">Schließen</system:String>
 
     <!--Setting General-->
-    <system:String x:Key="wox_settings">Wox Einstellungen</system:String>
+    <system:String x:Key="wox_settings">Saber Einstellungen</system:String>
     <system:String x:Key="general">Allgemein</system:String>
     <system:String x:Key="startWoxOnSystemStartup">Starte Wox bei Systemstart</system:String>
     <system:String x:Key="hideWoxWhenLoseFocus">Verstecke Wox wenn der Fokus verloren geht</system:String>

@@ -85,13 +85,13 @@ function Pack-Squirrel-Installer ($path, $version, $output) {
     # msbuild based installer generation is not working in appveyor, not sure why
     Write-Host "Begin pack squirrel installer"
 
-    $spec = "$path\Scripts\wox.nuspec"
+    $spec = "$path\Scripts\saber.nuspec"
     Write-Host "nuspec path: $spec"
     $input = "$path\Output\Release"
     Write-Host "Input path:  $input"
     Nuget pack $spec -Version $version -Properties Configuration=Release -BasePath $input -OutputDirectory  $output
 
-    $nupkg = "$output\Wox.$version.nupkg"
+    $nupkg = "$output\Saber.$version.nupkg"
     Write-Host "nupkg path: $nupkg"
     $icon = "$path\Wox\Resources\app.ico"
     Write-Host "icon: $icon"
@@ -105,7 +105,7 @@ function Pack-Squirrel-Installer ($path, $version, $output) {
     Move-Item $temp\* $output -Force
     Remove-Item $temp
     
-    $file = "$output\Wox-$version.exe"
+    $file = "$output\Saber-$version.exe"
     Write-Host "Filename: $file"
 
     Move-Item "$output\Setup.exe" $file -Force

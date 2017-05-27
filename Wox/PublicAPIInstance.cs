@@ -65,6 +65,9 @@ namespace Wox
             ImageLoader.Save();
             Alphabet.Save();
 
+            //System.Diagnostics.Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location);  //重新开启当前程序
+            //Environment.Exit(0);//关闭当前程序
+            //System.Windows.Forms.Application.Restart();
             UpdateManager.RestartApp();
         }
 
