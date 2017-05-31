@@ -155,7 +155,7 @@ namespace Wox.Plugin.Program.Programs
                     }
                     catch (Exception e)
                     {
-                        Log.Exception($"|UWP.All|Can't convert Package to UWP for <{p.Id.FullName}>:", e);
+                        Log.Exception($"|UWP.All|Can't convert Package to UWP for <{p.Id.FullName}>: ",e);
                         return new Application[] { };
                     }
                     return u.Apps;

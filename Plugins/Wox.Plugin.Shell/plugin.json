@@ -2,11 +2,11 @@
     "ID":"D409510CD0D2481F853690A07E6DC426",
     "ActionKeyword":">",
     "Name":"Shell",
-    "Description":"Provide executing commands from Wox. Commands should start with >",
-    "Author":"qianlifeng",
+    "Description":"Provide executing commands from Saber. Commands should start with >",
+    "Author":"yozora",
     "Version":"1.0.0",
     "Language":"csharp",
     "Website":"http://www.getwox.com/plugin",
-    "ExecuteFileName":"Wox.Plugin.Shell.dll",
+    "ExecuteFileName":"Saber.Plugin.Shell.dll",
     "IcoPath":"Images\\shell.png"
 }

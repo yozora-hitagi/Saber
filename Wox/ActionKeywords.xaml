@@ -19,14 +19,14 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Margin="10" FontSize="14" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"
-                   HorizontalAlignment="Right" Text="{DynamicResource oldActionKeyword}" />
+                   HorizontalAlignment="Right" Text="{DynamicResource oldActionKeywords}" />
         <TextBlock x:Name="tbOldActionKeyword" Margin="10" FontSize="14" Grid.Row="0" Grid.Column="1"
                    VerticalAlignment="Center" HorizontalAlignment="Left">
             Old ActionKeywords:
         </TextBlock>
 
         <TextBlock Margin="10" FontSize="14" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
-                   HorizontalAlignment="Right" Text="{DynamicResource newActionKeyword}" />
+                   HorizontalAlignment="Right" Text="{DynamicResource newActionKeywords}" />
         <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="1">
             <TextBox x:Name="tbAction" Margin="10" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left" />
         </StackPanel>

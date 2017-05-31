@@ -21,10 +21,10 @@
         <wox:HotkeyControl x:Name="ctlHotkey" Margin="10" Grid.Column="1" />
 
         <TextBlock Margin="10" FontSize="14" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"
-                   HorizontalAlignment="Right" Text="{DynamicResource actionKeyword}" />
+                   HorizontalAlignment="Right" Text="{DynamicResource actionKeywords}" />
         <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.Column="1">
             <TextBox x:Name="tbAction" Margin="10" Width="400" VerticalAlignment="Center" HorizontalAlignment="Left" />
-            <Button x:Name="btnTestActionKeyword" Padding="10 5 10 5" Height="30" Click="BtnTestActionKeyword_OnClick"
+            <Button x:Name="btnTestActionKeyword" Padding="10 5 10 5" Height="25" Click="BtnTestActionKeyword_OnClick"
                     Content="{DynamicResource preview}" />
         </StackPanel>
 

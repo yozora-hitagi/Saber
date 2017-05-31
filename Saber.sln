@@ -48,7 +48,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldCSharp", "Plugins\HelloWorldCSharp\HelloWorldCSharp.csproj", "{03FFA443-5F50-48D5-8869-F3DF316803AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wox.Plugin.Shell", "Plugins\Wox.Plugin.Shell\Wox.Plugin.Shell.csproj", "{C21BFF9C-2C99-4B5F-B7C9-A5E6DDDB37B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saber.Plugin.Shell", "Plugins\Wox.Plugin.Shell\Saber.Plugin.Shell.csproj", "{C21BFF9C-2C99-4B5F-B7C9-A5E6DDDB37B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wox.Plugin.Calculator", "Plugins\Wox.Plugin.Calculator\Wox.Plugin.Calculator.csproj", "{59BD9891-3837-438A-958D-ADC7F91F6F7E}"
 EndProject

@@ -5,7 +5,7 @@ namespace Wox.Plugin.Shell
     public class Settings
     {
         public Shell Shell { get; set; } = Shell.Cmd;
-        public bool ReplaceWinR { get; set; } = true;
+        public bool ReplaceWinR { get; set; } = false;
         public bool LeaveShellOpen { get; set; }
         public Dictionary<string, int> Count = new Dictionary<string, int>();
 
