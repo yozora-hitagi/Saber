@@ -19,6 +19,15 @@ namespace Wox
 {
     public partial class App : IDisposable, ISingleInstanceApp
     {
+        ////调用API
+        //[System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto, ExactSpelling = true)]
+        //public static extern IntPtr GetForegroundWindow(); //获得本窗体的句柄
+        //[System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "SetForegroundWindow")]
+        //public static extern bool SetForegroundWindow(IntPtr hWnd);//设置此窗体为活动窗体
+        //定义变量,句柄类型
+        //public IntPtr han;
+
+
         public static PublicAPIInstance API { get; private set; }
         private const string Unique = "Wox_Unique_Application_Mutex";
         private static bool _disposed;
@@ -80,6 +89,9 @@ namespace Wox
                 AutoUpdates();
 
                 _mainVM.MainWindowVisibility = _settings.HideOnStartup ? Visibility.Hidden : Visibility.Visible;
+                
+                //SetForegroundWindow(new System.Windows.Interop.WindowInteropHelper(window).Handle);
+
                 Log.Info("|App.OnStartup|End Wox startup ----------------------------------------------------  ");
             });
         }

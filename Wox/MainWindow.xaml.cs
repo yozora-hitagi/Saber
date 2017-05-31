@@ -23,6 +23,8 @@ namespace Wox
     public partial class MainWindow
     {
 
+
+
         #region Private Fields
 
         private readonly Storyboard _progressBarStoryboard = new Storyboard();
@@ -54,6 +56,7 @@ namespace Wox
         {
             // show notify icon when wox is hided
             InitializeNotifyIcon();
+            
         }
 
         private void OnLoaded(object sender, RoutedEventArgs _)

@@ -54,21 +54,36 @@ namespace Wox
 
         public void RestarApp()
         {
-            _mainVM.MainWindowVisibility = Visibility.Hidden;
+            //感觉这个设置 可见 是多余的
+            // _mainVM.MainWindowVisibility = Visibility.Hidden;
 
             // we must manually save
             // UpdateManager.RestartApp() will call Environment.Exit(0)
             // which will cause ungraceful exit
-            _mainVM.Save();
+
+            //Application.Current.MainWindow.Close() 触发 MainWindow 的 closing 事件， 那里有 _mainVM.Save()
+            //_mainVM.Save();
+
             _settingsVM.Save();
             PluginManager.Save();
             ImageLoader.Save();
             Alphabet.Save();
 
+
+
+            System.Windows.Forms.Application.ExitThread();
+            System.Windows.Forms.Application.Exit();
+
+            Application.Current.MainWindow.Close();
+
+            System.Windows.Forms.Application.Restart();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+
             //System.Diagnostics.Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location);  //重新开启当前程序
             //Environment.Exit(0);//关闭当前程序
             //System.Windows.Forms.Application.Restart();
-            UpdateManager.RestartApp();
+
+            //UpdateManager.RestartApp();
         }
 
         [Obsolete]
