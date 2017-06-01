@@ -18,7 +18,7 @@
     <system:String x:Key="wox_settings">Saber设置</system:String>
     <system:String x:Key="general">通用</system:String>
     <system:String x:Key="startWoxOnSystemStartup">开机启动</system:String>
-    <system:String x:Key="hideWoxWhenLoseFocus">失去焦点时自动隐藏Wox</system:String>
+    <system:String x:Key="hideWoxWhenLoseFocus">失去焦点时自动隐藏Saber</system:String>
     <system:String x:Key="dontPromptUpdateMsg">不显示新版本提示</system:String>
     <system:String x:Key="rememberLastLocation">记住上次启动位置</system:String>
     <system:String x:Key="language">语言</system:String>
@@ -46,7 +46,7 @@
     <!--设置，主题-->
     <system:String x:Key="theme">主题</system:String>
     <system:String x:Key="browserMoreThemes">浏览更多主题</system:String>
-    <system:String x:Key="helloWox">你好，Wox</system:String>
+    <system:String x:Key="helloWox">你好，Saber</system:String>
     <system:String x:Key="queryBoxFont">查询框字体</system:String>
     <system:String x:Key="resultItemFont">结果项字体</system:String>
     <system:String x:Key="windowMode">窗口模式</system:String>
@@ -54,7 +54,7 @@
     
     <!--设置，热键-->
     <system:String x:Key="hotkey">热键</system:String>
-    <system:String x:Key="woxHotkey">Wox激活热键</system:String>
+    <system:String x:Key="woxHotkey">Saber激活热键</system:String>
     <system:String x:Key="customQueryHotkey">自定义查询热键</system:String>
     <system:String x:Key="delete">删除</system:String>
     <system:String x:Key="edit">编辑</system:String>
@@ -121,7 +121,7 @@
     <system:String x:Key="reportWindow_sending">发送中</system:String>
     <system:String x:Key="reportWindow_report_succeed">发送成功</system:String>
     <system:String x:Key="reportWindow_report_failed">发送失败</system:String>
-    <system:String x:Key="reportWindow_wox_got_an_error">Wox出错啦</system:String>
+    <system:String x:Key="reportWindow_wox_got_an_error">Saber出错啦</system:String>
 
     <!--更新-->
     <system:String x:Key="update_wox_update_new_version_available">发现Wox新版本 V{0}</system:String>

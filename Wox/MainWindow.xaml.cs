@@ -70,6 +70,8 @@ namespace Wox
             // so we need set focus during startup
             QueryTextBox.Focus();
 
+           // App.SetForegroundWindow(new System.Windows.Interop.WindowInteropHelper(this).Handle);
+
             _viewModel.PropertyChanged += (o, e) =>
             {
                 if (e.PropertyName == nameof(MainViewModel.MainWindowVisibility))
@@ -85,6 +87,8 @@ namespace Wox
                             QueryTextBox.SelectAll();
                             _viewModel.LastQuerySelected = true;
                         }
+                        
+                        // App.SetForegroundWindow(new System.Windows.Interop.WindowInteropHelper(this).Handle);
                     }
                 }
             };

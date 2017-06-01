@@ -11,14 +11,14 @@
     <system:String x:Key="lastExecuteTime">Последний раз выполнен в:{0}</system:String>
     <system:String x:Key="iconTrayOpen">Открыть</system:String>
     <system:String x:Key="iconTraySettings">Настройки</system:String>
-    <system:String x:Key="iconTrayAbout">О Wox</system:String>
+    <system:String x:Key="iconTrayAbout">О Saber</system:String>
     <system:String x:Key="iconTrayExit">Закрыть</system:String>
 
     <!--Setting General-->
     <system:String x:Key="wox_settings">Настройки Saber</system:String>
     <system:String x:Key="general">Общие</system:String>
-    <system:String x:Key="startWoxOnSystemStartup">Запускать Wox при запуске системы</system:String>
-    <system:String x:Key="hideWoxWhenLoseFocus">Скрывать Wox если потерян фокус</system:String>
+    <system:String x:Key="startWoxOnSystemStartup">Запускать Saber при запуске системы</system:String>
+    <system:String x:Key="hideWoxWhenLoseFocus">Скрывать Saber если потерян фокус</system:String>
     <system:String x:Key="dontPromptUpdateMsg">Не отображать сообщение об обновлении когда доступна новая версия</system:String>
     <system:String x:Key="rememberLastLocation">Запомнить последнее место запуска</system:String>
     <system:String x:Key="language">Язык</system:String>
@@ -50,7 +50,7 @@
     
     <!--Setting Hotkey-->
     <system:String x:Key="hotkey">Горячие клавиши</system:String>
-    <system:String x:Key="woxHotkey">Горячая клавиша Wox</system:String>
+    <system:String x:Key="woxHotkey">Горячая клавиша Saber</system:String>
     <system:String x:Key="customQueryHotkey">Задаваемые горячие клавиши для запросов</system:String>
     <system:String x:Key="delete">Удалить</system:String>
     <system:String x:Key="edit">Изменить</system:String>
