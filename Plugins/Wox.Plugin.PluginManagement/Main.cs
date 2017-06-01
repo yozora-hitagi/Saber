@@ -207,11 +207,11 @@ namespace Wox.Plugin.PluginManagement
                              $"Name: {plugin.Name}{Environment.NewLine}" +
                              $"Version: {plugin.Version}{Environment.NewLine}" +
                              $"Author: {plugin.Author}";
-            if (MessageBox.Show(content, "Wox", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show(content, "Saber", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 File.Create(Path.Combine(plugin.PluginDirectory, "NeedDelete.txt")).Close();
                 var result = MessageBox.Show($"You have uninstalled plugin {plugin.Name} successfully.{Environment.NewLine}" +
-                                             "Restart Wox to take effect?",
+                                             "Restart Saber to take effect?",
                                              "Install plugin", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {

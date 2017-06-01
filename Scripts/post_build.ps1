@@ -38,7 +38,7 @@ function Copy-Resources ($path, $config) {
     Copy-Item -Recurse -Force $project\Images\* $target\Images\
     Copy-Item -Recurse -Force $path\Plugins\HelloWorldPython $target\Plugins\HelloWorldPython
     Copy-Item -Recurse -Force $path\JsonRPC $target\JsonRPC
-    Copy-Item -Force $path\packages\squirrel*\tools\Squirrel.exe $output\Update.exe
+    #Copy-Item -Force $path\packages\squirrel*\tools\Squirrel.exe $output\Update.exe
 }
 
 function Delete-Unused ($path, $config) {
@@ -121,19 +121,19 @@ function Main {
     if ($config -eq "Release"){
 
         Delete-Unused $p $config
-        $o = "$p\Output\Packages"
-        Validate-Directory $o
-        New-Alias Nuget $p\packages\NuGet.CommandLine.*\tools\NuGet.exe -Force
-        Pack-Squirrel-Installer $p $v $o
+        #$o = "$p\Output\Packages"
+        #Validate-Directory $o
+        #New-Alias Nuget $p\packages\NuGet.CommandLine.*\tools\NuGet.exe -Force
+        #Pack-Squirrel-Installer $p $v $o
     
-        $isInCI = $env:APPVEYOR
-        if ($isInCI) {
-            Pack-Nuget $p $v $o
-            Zip-Release $p $v $o
-        }
+        #$isInCI = $env:APPVEYOR
+        #if ($isInCI) {
+        #    Pack-Nuget $p $v $o
+        #    Zip-Release $p $v $o
+        #}
 
-        Write-Host "List output directory"
-        Get-ChildItem $o
+        #Write-Host "List output directory"
+        #Get-ChildItem $o
     }
 }
 
