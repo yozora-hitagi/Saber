@@ -176,7 +176,8 @@ namespace Wox
 
         public void OnSecondAppStarted()
         {
-            Current.MainWindow.Visibility = Visibility.Visible;
+            // Current.MainWindow.Visibility = Visibility.Visible;
+            _mainVM.MainWindowVisibility = Visibility.Visible;
         }
     }
 }

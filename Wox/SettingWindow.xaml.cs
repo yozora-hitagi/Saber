@@ -14,10 +14,11 @@ using NHotkey.Wpf;
 using Wox.Core;
 using Wox.Core.Plugin;
 using Wox.Core.Resource;
-using Wox.Infrastructure.Hotkey;
+using Wox.Infrastructure;
 using Wox.Infrastructure.UserSettings;
 using Wox.Plugin;
 using Wox.ViewModel;
+using Wox.Infrastructure.Hotkey;
 
 namespace Wox
 {
@@ -323,6 +324,18 @@ namespace Wox
         private void OnCloseExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Close();
+        }
+
+        private void OpenDir(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            if (b.Name.Equals("opendatadir"))
+            {
+                Process.Start(Constant.DataDirectory);
+            }else if (b.Name.Equals("openprogramdir"))
+            {
+                Process.Start(Constant.ProgramDirectory);
+            }
         }
     }
 }

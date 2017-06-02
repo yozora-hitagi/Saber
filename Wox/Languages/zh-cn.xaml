@@ -33,6 +33,9 @@
     <system:String x:Key="selectPythonDirectory">选择</system:String>
     <system:String x:Key="hideOnStartup">启动时不显示主窗口</system:String>
 
+    <system:String x:Key="openDataDir">打开Data目录</system:String>
+    <system:String x:Key="openProgramDir">打开程序目录</system:String>
+
     <!--设置，插件-->
     <system:String x:Key="plugin">插件</system:String>
     <system:String x:Key="browserMorePlugins">浏览更多插件</system:String>

@@ -76,6 +76,10 @@
                     <Button Margin="10" Click="OnSelectPythonDirectoryClick"
                             Content="{DynamicResource selectPythonDirectory}" />
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="10" Name="opendatadir" Click="OpenDir" Content="{DynamicResource openDataDir}"/>
+                    <Button Margin="10" Name="openprogramdir" Click="OpenDir" Content="{DynamicResource openProgramDir}"/>
+                </StackPanel>
             </StackPanel>
         </TabItem>
         <TabItem Header="{DynamicResource plugin}">

@@ -122,21 +122,23 @@ namespace Wox
             //exit.Click += (o, e) => Close();
 
             //_notifyIcon.ContextMenuStrip = menu;
-            //_notifyIcon.MouseClick += (o, e) =>
-            //{
-            //    if (e.Button == MouseButtons.Left)
-            //    {
-            //        if (menu.Visible)
-            //        {
-            //            menu.Close();
-            //        }
-            //        else
-            //        {
-            //            var p = System.Windows.Forms.Cursor.Position;
-            //            menu.Show(p);
-            //        }
-            //    }
-            //};
+            _notifyIcon.MouseClick += (o, e) =>
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    //if (menu.Visible)
+                    //{
+                    //    menu.Close();
+                    //}
+                    //else
+                    //{
+                    //    var p = System.Windows.Forms.Cursor.Position;
+                    //    menu.Show(p);
+                    //}
+                    if (Visibility != Visibility.Visible) { _viewModel.MainWindowVisibility = Visibility.Visible; }
+                 
+                }
+            };
         }
 
         private void InitProgressbarAnimation()
