@@ -1,0 +1,12 @@
+{
+    "ID":"98ec4dbb28f44d6a845100745cee6134",
+    "ActionKeyword":"lunar",
+    "Name":"Lunar",
+    "Description":"Lunar 公历、农历、生肖年、节气、节日查询",
+    "Author":"yozora",
+    "Version":"1.0.0",
+    "Language":"python",
+    "Website":"https://github.com/yozora-hitagi/Saber",
+    "ExecuteFileName":"main.py",
+    "IcoPath":"Images\\app.png"
+}
