@@ -3,9 +3,10 @@
     "ActionKeyword":"*",
     "Name":"System Commands",
     "Description":"Provide System related commands. e.g. shutdown,lock,setting etc.",
-    "Author":"qianlifeng",
+    "Author":"yozora",
     "Version":"1.0.0",
     "Language":"csharp",
+	"CanDisabled":false,
     "Website":"http://www.getwox.com/plugin",
     "ExecuteFileName":"Wox.Plugin.Sys.dll",
     "IcoPath":"Images\\lock.png"

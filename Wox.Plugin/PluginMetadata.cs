@@ -16,7 +16,12 @@ namespace Wox.Plugin
         public string Language { get; set; }
         public string Description { get; set; }
         public string Website { get; set; }
+
+        public bool CanDisabled { get; set; } = true;
+        
         public bool Disabled { get; set; }
+
+
         public string ExecuteFilePath { get; private set;}
 
         public string ExecuteFileName { get; set; }
