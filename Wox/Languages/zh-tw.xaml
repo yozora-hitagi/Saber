@@ -15,7 +15,7 @@
     <system:String x:Key="iconTrayExit">結束</system:String>
 
     <!--設定，一般-->
-    <system:String x:Key="wox_settings">Saber 設定</system:String>
+    <system:String x:Key="saber_settings">Saber 設定</system:String>
     <system:String x:Key="general">一般</system:String>
     <system:String x:Key="startWoxOnSystemStartup">開機時啟動</system:String>
     <system:String x:Key="hideWoxWhenLoseFocus">失去焦點時自動隱藏 Saber</system:String>

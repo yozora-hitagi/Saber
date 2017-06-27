@@ -15,7 +15,7 @@
     <system:String x:Key="iconTrayExit">종료</system:String>
 
     <!--Setting General-->
-    <system:String x:Key="wox_settings">Saber 설정</system:String>
+    <system:String x:Key="saber_settings">Saber 설정</system:String>
     <system:String x:Key="general">일반</system:String>
     <system:String x:Key="startWoxOnSystemStartup">시스템 시작 시 Wox 실행</system:String>
     <system:String x:Key="hideWoxWhenLoseFocus">포커스 잃으면 Wox 숨김</system:String>

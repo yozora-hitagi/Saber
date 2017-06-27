@@ -10,7 +10,7 @@ namespace Wox.Infrastructure.UserSettings
     public class Settings : BaseModel
     {
         public string Hotkey { get; set; } = "Alt + Space";
-        public string Language { get; set; } = "en";
+        public string Language { get; set; } = "zh-cn";
         public string Theme { get; set; } = "Dark";
         public string QueryBoxFont { get; set; } = FontFamily.GenericSansSerif.Name;
         public string QueryBoxFontStyle { get; set; }

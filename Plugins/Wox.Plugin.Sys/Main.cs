@@ -168,7 +168,7 @@ namespace Wox.Plugin.Sys
                 },
                 new Result
                 {
-                    Title = "Restart Wox",
+                    Title = "Restart Saber",
                     SubTitle = context.API.GetTranslation("wox_plugin_sys_restart"),
                     IcoPath = "Images\\app.png",
                     Action = c =>

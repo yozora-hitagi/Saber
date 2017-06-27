@@ -65,7 +65,7 @@
                         <MenuItem Command="ApplicationCommands.Copy"/>
                         <MenuItem Command="ApplicationCommands.Paste"/>
                         <Separator />
-                        <MenuItem Header="Settings" Click="OnContextMenusForSettingsClick" />
+                        <MenuItem Header="{DynamicResource saber_settings}" Click="OnContextMenusForSettingsClick" />
                     </ContextMenu>
                 </TextBox.ContextMenu>
             </TextBox>
