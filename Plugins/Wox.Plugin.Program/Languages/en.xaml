@@ -10,6 +10,7 @@
     <system:String x:Key="wox_plugin_program_suffixes">Index file suffixes</system:String>
     <system:String x:Key="wox_plugin_program_reindex">Reindex</system:String>
     <system:String x:Key="wox_plugin_program_indexing">Indexing</system:String>
+    <system:String x:Key="wox_plugin_program_indexing_ok">Indexing successed</system:String>
     <system:String x:Key="wox_plugin_program_index_start">Index Start Menu</system:String>
     <system:String x:Key="wox_plugin_program_index_registry">Index Registry</system:String>
     <system:String x:Key="wox_plugin_program_suffixes_header">Suffixes</system:String>
@@ -33,6 +34,6 @@
     <system:String x:Key="wox_plugin_program_open_containing_folder">Open containing folder</system:String>
 
     <system:String x:Key="wox_plugin_program_plugin_name">Program</system:String>
-    <system:String x:Key="wox_plugin_program_plugin_description">Search programs in Wox</system:String>
+    <system:String x:Key="wox_plugin_program_plugin_description">Search programs in Saber</system:String>
 
 </ResourceDictionary>

@@ -64,13 +64,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="AddProgramSource.xaml" />
     <Compile Include="..\..\SolutionAssemblyInfo.cs">
       <Link>Properties\SolutionAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AddProgramSource.xaml.cs">
-      <DependentUpon>AddProgramSource.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Indexing.cs" />
     <Compile Include="FileChangeWatcher.cs" />
     <Compile Include="Programs\IProgram.cs" />
     <Compile Include="Programs\UWP.cs" />

@@ -26,8 +26,12 @@ namespace Wox.Plugin.Program
         private static Settings _settings;
         private readonly PluginJsonStorage<Settings> _settingsStorage;
 
+        private static Indexing _indexing;
+
         public Main()
         {
+            _indexing = new Indexing();
+
             _settingsStorage = new PluginJsonStorage<Settings>();
             _settings = _settingsStorage.Load();
 
@@ -40,10 +44,7 @@ namespace Wox.Plugin.Program
             });
             Log.Info($"|Wox.Plugin.Program.Main|Number of preload win32 programs <{_win32s.Length}>");
             Log.Info($"|Wox.Plugin.Program.Main|Number of preload uwps <{_uwps.Length}>");
-            Task.Run(() =>
-            {
-                Stopwatch.Normal("|Wox.Plugin.Program.Main|Program index cost", IndexPrograms);
-            });
+
         }
 
         public void Save()
@@ -67,31 +68,11 @@ namespace Wox.Plugin.Program
         public void Init(PluginInitContext context)
         {
             _context = context;
+            _indexing._context = context;
         }
 
-        public static void IndexPrograms()
+        public static void updateIndex(Win32[] w,UWP.Application[] u)
         {
-            Win32[] w = { };
-            UWP.Application[] u = { };
-            var t1 = Task.Run(() =>
-            {
-                w = Win32.All(_settings);
-            });
-            var t2 = Task.Run(() =>
-            {
-                var windows10 = new Version(10, 0);
-                var support = Environment.OSVersion.Version.Major >= windows10.Major;
-                if (support)
-                {
-                    u = UWP.All();
-                }
-                else
-                {
-                    u = new UWP.Application[] { };
-                }
-            });
-            Task.WaitAll(t1, t2);
-
             lock (IndexLock)
             {
                 _win32s = w;
@@ -99,9 +80,46 @@ namespace Wox.Plugin.Program
             }
         }
 
+        public static Settings Settings()
+        {
+            return _settings;
+        }
+
+        //public static void IndexPrograms()
+        //{
+        //    Win32[] w = { };
+        //    UWP.Application[] u = { };
+        //    var t1 = Task.Run(() =>
+        //    {
+        //        w = Win32.All(_settings);
+        //    });
+        //    var t2 = Task.Run(() =>
+        //    {
+        //        var windows10 = new Version(10, 0);
+        //        var support = Environment.OSVersion.Version.Major >= windows10.Major;
+        //        if (support)
+        //        {
+        //            u = UWP.All();
+        //        }
+        //        else
+        //        {
+        //            u = new UWP.Application[] { };
+        //        }
+        //    });
+        //    Task.WaitAll(t1, t2);
+
+        //    lock (IndexLock)
+        //    {
+        //        _win32s = w;
+        //        _uwps = u;
+        //    }
+        //}
+
         public Control CreateSettingPanel()
         {
-            return new ProgramSetting(_context, _settings);
+            ProgramSetting set = new ProgramSetting(_context, _settings, _indexing);
+          
+            return set;
         }
 
         public string GetTranslatedPluginTitle()

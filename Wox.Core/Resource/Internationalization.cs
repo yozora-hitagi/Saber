@@ -16,7 +16,7 @@ namespace Wox.Core.Resource
     {
         public Settings Settings { get; set; }
         private const string Folder = "Languages";
-        private const string DefaultFile = "en.xaml";
+        private const string DefaultFile = "zh-cn.xaml";
         private const string Extension = ".xaml";
         private readonly List<string> _languageDirectories = new List<string>();
         private readonly List<ResourceDictionary> _oldResources = new List<ResourceDictionary>();
@@ -58,7 +58,7 @@ namespace Wox.Core.Resource
 
         private void LoadDefaultLanguage()
         {
-            LoadLanguage(AvailableLanguages.English);
+            LoadLanguage(AvailableLanguages.Chinese);
             _oldResources.Clear();
         }
 

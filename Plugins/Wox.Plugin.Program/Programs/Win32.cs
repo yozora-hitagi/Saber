@@ -211,21 +211,33 @@ namespace Wox.Plugin.Program.Programs
 
             var paths = ds.SelectMany(d =>
             {
-                try
+                //try
+                //{
+                var paths_for_suffixes = suffixes.SelectMany(s =>
                 {
-                    var paths_for_suffixes = suffixes.SelectMany(s =>
+                    try
                     {
                         var pattern = $"*.{s}";
                         var ps = Directory.EnumerateFiles(d, pattern, SearchOption.AllDirectories);
+
+                        //这里测试下， 否则外面的 抛异常 这里才会抛 UnauthorizedAccessException
+                        ps.ToArray();
+
                         return ps;
-                    });
-                    return paths_for_suffixes;
-                }
-                catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
-                {
-                    Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{directory}>", e);
-                    return new List<string>();
-                }
+                    }
+                    catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
+                    {
+                        Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
+                        return new List<string>();
+                    }
+                });
+                return paths_for_suffixes;
+                //}
+                //catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
+                //{
+                //    Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
+                //    return new List<string>();
+                //}
             });
             return paths;
         }

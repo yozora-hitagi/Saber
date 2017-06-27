@@ -13,13 +13,21 @@ namespace Wox.Plugin.Program
     {
         private PluginInitContext context;
         private Settings _settings;
+        private Indexing _indexing;
 
-        public ProgramSetting(PluginInitContext context, Settings settings)
+        public ProgramSetting(PluginInitContext context, Settings settings,Indexing indexing)
         {
             this.context = context;
             InitializeComponent();
             Loaded += Setting_Loaded;
             _settings = settings;
+
+            _indexing = indexing;
+
+            progressBarIndexing.SetBinding(TextBlock.VisibilityProperty, new System.Windows.Data.Binding("Visibility") { Source = indexing, Mode = System.Windows.Data.BindingMode.OneWay });
+            messageIndexing.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("Text") { Source = indexing, Mode = System.Windows.Data.BindingMode.OneWay });
+
+       
         }
 
         private void Setting_Loaded(object sender, RoutedEventArgs e)
@@ -29,23 +37,36 @@ namespace Wox.Plugin.Program
             RegistryEnabled.IsChecked = _settings.EnableRegistrySource;
         }
 
-        private void ReIndexing()
-        {
-            programSourceView.Items.Refresh();
-            Task.Run(() =>
-            {
-                Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Visible; });
-                Main.IndexPrograms();
-                Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Hidden; });
-            });
-        }
+        //private void ReIndexing()
+        //{
+        //    //programSourceView.Items.Refresh();
+        //    Task.Run(() =>
+        //    {
+        //        Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Visible; });
+        //        Main.IndexPrograms();
+        //        Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Hidden; });
+        //    });
+        //}
 
         private void btnAddProgramSource_OnClick(object sender, RoutedEventArgs e)
         {
-            var add = new AddProgramSource(_settings);
-            if(add.ShowDialog() ?? false)
+            //var add = new AddProgramSource(_settings);
+            //if(add.ShowDialog() ?? false)
+            //{
+            //    ReIndexing();
+            //}
+
+
+            var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                ReIndexing();
+                var source = new Settings.ProgramSource
+                {
+                    Location = dialog.SelectedPath,
+                };
+                _settings.ProgramSources.Add(source);
+                programSourceView.Items.Refresh();
             }
         }
 
@@ -59,7 +80,8 @@ namespace Wox.Plugin.Program
                 if (MessageBox.Show(msg, string.Empty, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     _settings.ProgramSources.Remove(selectedProgramSource);
-                    ReIndexing();
+                    //ReIndexing();
+                    programSourceView.Items.Refresh();
                 }
             }
             else
@@ -74,10 +96,19 @@ namespace Wox.Plugin.Program
             var selectedProgramSource = programSourceView.SelectedItem as Settings.ProgramSource;
             if (selectedProgramSource != null)
             {
-                var add = new AddProgramSource(selectedProgramSource, _settings);
-                if (add.ShowDialog() ?? false)
+                //var add = new AddProgramSource(selectedProgramSource, _settings);
+                //if (add.ShowDialog() ?? false)
+                //{
+                //    ReIndexing();
+                //}
+
+                var dialog = new System.Windows.Forms.FolderBrowserDialog();
+                dialog.SelectedPath = selectedProgramSource.Location;
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    ReIndexing();
+                    selectedProgramSource.Location = dialog.SelectedPath;
+                    programSourceView.Items.Refresh();
                 }
             }
             else
@@ -89,7 +120,13 @@ namespace Wox.Plugin.Program
 
         private void btnReindex_Click(object sender, RoutedEventArgs e)
         {
-            ReIndexing();
+            //Task.Run(() =>
+            //{
+            //    Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Visible; });
+            //    Main.IndexPrograms();
+            //    Dispatcher.Invoke(() => { indexingPanel.Visibility = Visibility.Hidden; });
+            //});
+            _indexing.start();
         }
 
         private void BtnProgramSuffixes_OnClick(object sender, RoutedEventArgs e)
@@ -125,7 +162,7 @@ namespace Wox.Plugin.Program
                             Location = s
                         });
 
-                        ReIndexing();
+                        programSourceView.Items.Refresh();
                     }
                 }
             }
@@ -134,13 +171,13 @@ namespace Wox.Plugin.Program
         private void StartMenuEnabled_Click(object sender, RoutedEventArgs e)
         {
             _settings.EnableStartMenuSource = StartMenuEnabled.IsChecked ?? false;
-            ReIndexing();
+            //ReIndexing();
         }
 
         private void RegistryEnabled_Click(object sender, RoutedEventArgs e)
         {
             _settings.EnableRegistrySource = RegistryEnabled.IsChecked ?? false;
-            ReIndexing();
+            //ReIndexing();
         }
     }
 }

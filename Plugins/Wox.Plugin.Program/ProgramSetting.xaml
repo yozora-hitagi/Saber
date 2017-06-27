@@ -36,9 +36,9 @@
             </ListView.View>
         </ListView>
         <DockPanel  Grid.Row="2">
-            <StackPanel x:Name="indexingPanel" Visibility="Hidden" HorizontalAlignment="Left" Orientation="Horizontal">
-                <ProgressBar x:Name="progressBarIndexing" Height="20" Width="80" Minimum="0" Maximum="100" IsIndeterminate="True" />
-                <TextBlock Margin="10 0 0 0" Height="20" HorizontalAlignment="Center" Text="{DynamicResource wox_plugin_program_indexing}" />
+            <StackPanel x:Name="indexingPanel" HorizontalAlignment="Left" Orientation="Vertical">
+                <ProgressBar x:Name="progressBarIndexing" Height="10" Width="80" HorizontalAlignment="Left" Minimum="0" Maximum="100" IsIndeterminate="True" Margin="0,10,0,0" />
+                <TextBlock x:Name="messageIndexing" Height="20" Width="200" HorizontalAlignment="Left" Text="{DynamicResource wox_plugin_program_indexing}" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="btnDeleteProgramSource" Click="btnDeleteProgramSource_OnClick" Width="100" Margin="10" Content="{DynamicResource wox_plugin_program_delete}"/>
