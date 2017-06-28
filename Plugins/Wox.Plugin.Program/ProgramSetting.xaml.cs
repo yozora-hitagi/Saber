@@ -26,8 +26,10 @@ namespace Wox.Plugin.Program
 
             progressBarIndexing.SetBinding(TextBlock.VisibilityProperty, new System.Windows.Data.Binding("Visibility") { Source = indexing, Mode = System.Windows.Data.BindingMode.OneWay });
             messageIndexing.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding("Text") { Source = indexing, Mode = System.Windows.Data.BindingMode.OneWay });
+            messageIndexing.SetBinding(TextBlock.ToolTipProperty, new System.Windows.Data.Binding("Texts") { Source = indexing, Mode = System.Windows.Data.BindingMode.OneWay }); 
 
-       
+
+
         }
 
         private void Setting_Loaded(object sender, RoutedEventArgs e)

@@ -20,25 +20,30 @@
             <Button Height="30" HorizontalAlignment="Right" x:Name="btnProgramSuffixes" Width="130" Click="BtnProgramSuffixes_OnClick" Content="{DynamicResource wox_plugin_program_suffixes}" />
             <Button Height="30" HorizontalAlignment="Right" Margin="10 0 0 0" x:Name="btnReindex" Width="100" Click="btnReindex_Click" Content="{DynamicResource wox_plugin_program_reindex}" />
         </StackPanel>
-        <ListView x:Name="programSourceView" Grid.Row="1" AllowDrop="True"
+        <StackPanel  Grid.Row="1" Orientation="Horizontal" >
+            <ListView x:Name="programSourceView"   AllowDrop="True" Width="580"
             DragEnter="programSourceView_DragEnter"
             Drop="programSourceView_Drop" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="{DynamicResource wox_plugin_program_location}" Width="550">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Location, ConverterParameter=(null), Converter={program:LocationConverter}}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="{DynamicResource wox_plugin_program_location}" Width="560">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Location, ConverterParameter=(null), Converter={program:LocationConverter}}" ToolTip="{Binding Location}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!--<TextBlock x:Name="indexingLog" Width="280" />-->
+
+        </StackPanel>
         <DockPanel  Grid.Row="2">
             <StackPanel x:Name="indexingPanel" HorizontalAlignment="Left" Orientation="Vertical">
-                <ProgressBar x:Name="progressBarIndexing" Height="10" Width="80" HorizontalAlignment="Left" Minimum="0" Maximum="100" IsIndeterminate="True" Margin="0,10,0,0" />
-                <TextBlock x:Name="messageIndexing" Height="20" Width="200" HorizontalAlignment="Left" Text="{DynamicResource wox_plugin_program_indexing}" />
+                <ProgressBar x:Name="progressBarIndexing" Height="10" Width="100" HorizontalAlignment="Left" Minimum="0" Maximum="100" IsIndeterminate="True" Margin="0,20,0,0" />
+                <TextBlock x:Name="messageIndexing" Height="20" Width="200" HorizontalAlignment="Left" Background="LightBlue"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="btnDeleteProgramSource" Click="btnDeleteProgramSource_OnClick" Width="100" Margin="10" Content="{DynamicResource wox_plugin_program_delete}"/>

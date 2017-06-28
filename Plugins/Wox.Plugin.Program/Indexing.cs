@@ -28,21 +28,35 @@ namespace Wox.Plugin.Program
             }
         }
 
-        private string _text = "";
+        private List<string> _text = new List<string>();
         public string Text
         {
             get
             {
-                return _text;
+                return _text.Last();
             }
 
             set
             {
-                _text = value;
+                _text.Add(value);
                 if (this.PropertyChanged != null)
                 {
                     this.PropertyChanged.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Text"));
+                    this.PropertyChanged.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs("Texts"));
                 }
+            }
+        }
+
+        public string Texts
+        {
+            get
+            {
+                string str = "";
+                foreach(string s in _text)
+                {
+                    str += s + "\r\n";
+                }
+                return str;
             }
         }
 
@@ -57,6 +71,8 @@ namespace Wox.Plugin.Program
             {
                 return;
             }
+
+            _text.Clear();
 
             Visibility = System.Windows.Visibility.Visible;
 

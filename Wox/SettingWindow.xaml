@@ -31,7 +31,7 @@
         </CollectionViewSource>
     </Window.Resources>
 
-    <TabControl Height="auto" SelectedIndex="0">
+    <TabControl Height="auto" SelectedIndex="0" >
         <TabItem Header="{DynamicResource general}">
             <StackPanel Orientation="Vertical">
                 <CheckBox IsChecked="{Binding Settings.StartWoxOnSystemStartup}" Margin="10"
