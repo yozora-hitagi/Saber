@@ -202,7 +202,7 @@ namespace Wox.Plugin.Program.Programs
             return program;
         }
 
-        private static IEnumerable<string> ProgramPaths(string directory, string[] suffixes)
+        private static IEnumerable<string> ProgramPaths(string directory, string[] suffixes, Indexing _indexing = null)
         {
             if (!Directory.Exists(directory))
                 return new string[] { };
@@ -211,6 +211,12 @@ namespace Wox.Plugin.Program.Programs
 
             var paths = ds.SelectMany(d =>
             {
+
+                if (d.IndexOf("$RECYCLE.BIN") >= 0 || d.IndexOf("System Volume Information") >= 0)
+                {
+                    return new List<string>();
+                }
+
                 //try
                 //{
                 var paths_for_suffixes = suffixes.SelectMany(s =>
@@ -219,18 +225,33 @@ namespace Wox.Plugin.Program.Programs
                     {
                         var pattern = $"*.{s}";
                         var ps = Directory.EnumerateFiles(d, pattern, SearchOption.AllDirectories);
-
                         //这里测试下， 否则外面的 抛异常 这里才会抛 UnauthorizedAccessException
-                        ps.ToArray();
-
+                        //ps.ToArray();
                         return ps;
                     }
                     catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
                     {
-                        Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
+                        _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_access"), d + " " + s);
+                        Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}> <{s}>", e);
                         return new List<string>();
                     }
                 });
+                try
+                {
+                    int size = paths_for_suffixes.ToArray().Length;
+
+                    if (null != _indexing)
+                    {
+                        _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_complete"), d + "(" + size + ")");
+                    }
+                }
+                catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
+                {
+                    _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_access"), d);
+                    Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
+                    return new List<string>();
+                }
+
                 return paths_for_suffixes;
                 //}
                 //catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
@@ -255,10 +276,10 @@ namespace Wox.Plugin.Program.Programs
             }
         }
 
-        private static ParallelQuery<Win32> UnregisteredPrograms(List<Settings.ProgramSource> sources, string[] suffixes)
+        public static ParallelQuery<Win32> UnregisteredPrograms(List<Settings.ProgramSource> sources, string[] suffixes, Indexing _indexing)
         {
             var paths = sources.Where(s => Directory.Exists(s.Location))
-                               .SelectMany(s => ProgramPaths(s.Location, suffixes))
+                               .SelectMany(s => ProgramPaths(s.Location, suffixes, _indexing))
                                .ToArray();
             var programs1 = paths.AsParallel().Where(p => Extension(p) == ExeExtension).Select(ExeProgram);
             var programs2 = paths.AsParallel().Where(p => Extension(p) == ShortcutExtension).Select(ExeProgram);
@@ -269,7 +290,7 @@ namespace Wox.Plugin.Program.Programs
             return programs1.Concat(programs2).Concat(programs3);
         }
 
-        private static ParallelQuery<Win32> StartMenuPrograms(string[] suffixes)
+        public static ParallelQuery<Win32> StartMenuPrograms(string[] suffixes)
         {
             var directory1 = Environment.GetFolderPath(Environment.SpecialFolder.Programs);
             var directory2 = Environment.GetFolderPath(Environment.SpecialFolder.CommonPrograms);
@@ -283,7 +304,7 @@ namespace Wox.Plugin.Program.Programs
         }
 
 
-        private static ParallelQuery<Win32> AppPathsPrograms(string[] suffixes)
+        public static ParallelQuery<Win32> AppPathsPrograms(string[] suffixes)
         {
             // https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121
             const string appPaths = @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths";
@@ -376,23 +397,23 @@ namespace Wox.Plugin.Program.Programs
         //    return p;
         //}
 
-        public static Win32[] All(Settings settings)
-        {
-            ParallelQuery<Win32> programs = new List<Win32>().AsParallel();
-            if (settings.EnableRegistrySource)
-            {
-                var appPaths = AppPathsPrograms(settings.ProgramSuffixes);
-                programs = programs.Concat(appPaths);
-            }
-            if (settings.EnableStartMenuSource)
-            {
-                var startMenu = StartMenuPrograms(settings.ProgramSuffixes);
-                programs = programs.Concat(startMenu);
-            }
-            var unregistered = UnregisteredPrograms(settings.ProgramSources, settings.ProgramSuffixes);
-            programs = programs.Concat(unregistered);
-            //.Select(ScoreFilter);
-            return programs.ToArray();
-        }
+        //public static Win32[] All(Settings settings)
+        //{
+        //    ParallelQuery<Win32> programs = new List<Win32>().AsParallel();
+        //    if (settings.EnableRegistrySource)
+        //    {
+        //        var appPaths = AppPathsPrograms(settings.ProgramSuffixes);
+        //        programs = programs.Concat(appPaths);
+        //    }
+        //    if (settings.EnableStartMenuSource)
+        //    {
+        //        var startMenu = StartMenuPrograms(settings.ProgramSuffixes);
+        //        programs = programs.Concat(startMenu);
+        //    }
+        //    var unregistered = UnregisteredPrograms(settings.ProgramSources, settings.ProgramSuffixes);
+        //    programs = programs.Concat(unregistered);
+        //    //.Select(ScoreFilter);
+        //    return programs.ToArray();
+        //}
     }
 }

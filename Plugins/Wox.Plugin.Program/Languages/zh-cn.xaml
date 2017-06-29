@@ -10,7 +10,10 @@
     <system:String x:Key="wox_plugin_program_suffixes">索引文件后缀</system:String>
     <system:String x:Key="wox_plugin_program_reindex">重新索引</system:String>
     <system:String x:Key="wox_plugin_program_indexing">索引中</system:String>
-    <system:String x:Key="wox_plugin_program_indexing_complete">完成{0}索引 </system:String>
+    <system:String x:Key="wox_plugin_program_indexing_complete">完成{0}索引</system:String>
+    <system:String x:Key="wox_plugin_program_indexing_access">索引{0}遇到权限问题</system:String>
+    <system:String x:Key="wox_plugin_program_indexing_complete_registry">完成注册表索引</system:String>
+    <system:String x:Key="wox_plugin_program_indexing_complete_startmenu">完成开始菜单索引</system:String>
     <system:String x:Key="wox_plugin_program_indexing_ok">索引成功</system:String>
     <system:String x:Key="wox_plugin_program_index_start">索引开始菜单</system:String>
     <system:String x:Key="wox_plugin_program_index_registry">索引注册表</system:String>

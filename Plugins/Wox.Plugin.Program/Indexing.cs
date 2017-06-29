@@ -102,7 +102,7 @@ namespace Wox.Plugin.Program
             UWP.Application[] u = { };
             var t1 = Task.Run(() =>
             {
-                w = Win32.All(Main.Settings());
+                w = index_win32(Main.Settings());
                 Text = string.Format(_context.API.GetTranslation("wox_plugin_program_indexing_complete"), "Win32");
             });
             var t2 = Task.Run(() =>
@@ -118,6 +118,29 @@ namespace Wox.Plugin.Program
             Main.updateIndex(w, u);
         }
 
-      
+
+        private Win32[] index_win32(Settings settings)
+        {
+            ParallelQuery<Win32> programs = new List<Win32>().AsParallel();
+            if (settings.EnableRegistrySource)
+            {
+                var appPaths = Win32.AppPathsPrograms(settings.ProgramSuffixes);
+                programs = programs.Concat(appPaths);
+                Text = _context.API.GetTranslation("wox_plugin_program_indexing_complete_registry");
+            }
+            if (settings.EnableStartMenuSource)
+            {
+                var startMenu =Win32.StartMenuPrograms(settings.ProgramSuffixes);
+                programs = programs.Concat(startMenu);
+                Text = _context.API.GetTranslation("wox_plugin_program_indexing_complete_startmenu");
+            }
+            var unregistered = Win32.UnregisteredPrograms(settings.ProgramSources, settings.ProgramSuffixes,this);
+
+            programs = programs.Concat(unregistered);
+            //.Select(ScoreFilter);
+            return programs.ToArray();
+        }
+
+
     }
 }
