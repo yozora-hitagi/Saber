@@ -88,16 +88,16 @@ namespace Wox.Infrastructure.Logger
 
                 do
                 {
-                    logger.Error($"Exception fulle name:\n <{e.GetType().FullName}>");
-                    logger.Error($"Exception message:\n <{e.Message}>");
-                    logger.Error($"Exception stack trace:\n <{e.StackTrace}>");
-                    logger.Error($"Exception source:\n <{e.Source}>");
-                    logger.Error($"Exception target site:\n <{e.TargetSite}>");
-                    logger.Error($"Exception HResult:\n <{e.HResult}>");
+                    logger.Error($"Exception fulle name: <{e.GetType().FullName}>");
+                    logger.Error($"Exception message: <{e.Message}>");
+                    logger.Error($"Exception stack trace: <{e.StackTrace}>");
+                    logger.Error($"Exception source: <{e.Source}>");
+                    logger.Error($"Exception target site: <{e.TargetSite}>");
+                    logger.Error($"Exception HResult: <{e.HResult}>");
                     e = e.InnerException;
                 } while (e != null);
 
-                logger.Error("-------------------------- End exception --------------------------");
+                logger.Error("-------------------------- End   exception --------------------------");
             }
             else
             {

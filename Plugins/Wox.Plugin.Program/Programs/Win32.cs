@@ -248,6 +248,7 @@ namespace Wox.Plugin.Program.Programs
                 catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
                 {
                     _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_access"), d);
+                    _indexing.Text = e.Message;
                     Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
                     return new List<string>();
                 }
