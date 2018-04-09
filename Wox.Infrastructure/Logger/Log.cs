@@ -13,17 +13,16 @@ namespace Wox.Infrastructure.Logger
 
         static Log()
         {
-            var path = Path.Combine(Constant.DataDirectory, DirectoryName, Constant.Version);
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
+            //var path = Path.Combine(Constant.DataDirectory, DirectoryName, Constant.Version);
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //}
 
             var configuration = new LoggingConfiguration();
             var target = new FileTarget();
             configuration.AddTarget("file", target);
-            target.FileName = "${specialfolder:folder=ApplicationData}/" + Constant.Saber + "/" + DirectoryName + "/" +
-                              Constant.Version + "/${shortdate}.txt";
+            target.FileName = "${specialfolder:folder=ApplicationData}/" + Constant.Saber + "/" + DirectoryName + "/${shortdate}.txt";
 #if DEBUG
             var rule = new LoggingRule("*", LogLevel.Debug, target);
 #else

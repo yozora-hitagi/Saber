@@ -22,17 +22,7 @@ namespace Wox.Core.Resource
             List<Language> languages = new List<Language>
             {
                 English,
-                Chinese,
-                Chinese_TW,
-                Ukrainian,
-                Russian,
-                French,
-                Japanese,
-                Dutch,
-                Polish,
-                Danish,
-                German,
-                Korean
+                Chinese
             };
             return languages;
         }

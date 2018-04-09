@@ -11,7 +11,7 @@ namespace Wox.Infrastructure.UserSettings
     {
         public string Hotkey { get; set; } = "Alt + Space";
         public string Language { get; set; } = "zh-cn";
-        public string Theme { get; set; } = "Dark";
+        public string Theme { get; set; } = "BlurBlack"; //默认主题
         public string QueryBoxFont { get; set; } = FontFamily.GenericSansSerif.Name;
         public string QueryBoxFontStyle { get; set; }
         public string QueryBoxFontWeight { get; set; }
