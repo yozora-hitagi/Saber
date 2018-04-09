@@ -31,14 +31,16 @@ function Build-Path {
 }
 
 function Copy-Resources ($path, $config) {
-    $project = "$path\Wox"
+    $project = "$path\Saber"
     $output = "$path\Output"
     $target = "$output\$config"
-    Copy-Item -Recurse -Force $project\Themes\* $target\Themes\
-    Copy-Item -Recurse -Force $project\Images\* $target\Images\
+    #Themes Images 配置好后都会在编译的时候copy，不需要脚本处理
+	#Copy-Item -Recurse -Force $project\Themes\* $target\Themes\
+    #Copy-Item -Recurse -Force $project\Images\* $target\Images\
     #Copy-Item -Recurse -Force $path\Plugins\HelloWorldPython $target\Plugins\HelloWorldPython
     Copy-Item -Recurse -Force $path\Plugins\Lunar $target\Plugins\Lunar
-    Copy-Item -Recurse -Force $path\JsonRPC $target\JsonRPC
+    #JsonRPC 已经加到vs项目中， 会自动copy
+	#Copy-Item -Recurse -Force $path\JsonRPC $target\JsonRPC
     #Copy-Item -Force $path\packages\squirrel*\tools\Squirrel.exe $output\Update.exe
 }
 

@@ -8,6 +8,6 @@
     "Language":"csharp",
 	"CanDisabled":false,
     "Website":"http://www.getwox.com/plugin",
-    "ExecuteFileName":"Wox.Plugin.Program.dll",
+    "ExecuteFileName":"Saber.Plugin.Program.dll",
     "IcoPath":"Images\\program.png"
 }

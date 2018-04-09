@@ -7,7 +7,7 @@
     <ProjectGuid>{D5023CE9-E8FA-4472-AC56-27A1E19310EA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wox</RootNamespace>
+    <RootNamespace>Saber</RootNamespace>
     <AssemblyName>Saber</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
