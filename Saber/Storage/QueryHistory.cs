@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using Wox.Plugin;
+using Saber.Plugin;
 
-namespace Wox.Storage
+namespace Saber.Storage
 {
     public class History
     {

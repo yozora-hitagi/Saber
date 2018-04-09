@@ -9,10 +9,10 @@ using System.Security;
 using System.Text;
 using Microsoft.Win32;
 using Shell;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Logger;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Logger;
 
-namespace Wox.Plugin.Program.Programs
+namespace Saber.Plugin.Program.Programs
 {
     [Serializable]
     public class Win32 : IProgram

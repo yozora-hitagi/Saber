@@ -5,11 +5,11 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Image;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Image;
 
-namespace Wox
+namespace Saber
 {
     public partial class Msg : Window
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class RelayCommand : ICommand
     {

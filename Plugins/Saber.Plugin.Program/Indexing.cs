@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wox.Plugin.Program.Programs;
+using Saber.Plugin.Program.Programs;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     public class Indexing : System.ComponentModel.INotifyPropertyChanged
     {

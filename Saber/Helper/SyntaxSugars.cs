@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Wox.Helper
+namespace Saber.Helper
 {
     public static class SyntaxSugars
     {

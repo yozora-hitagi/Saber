@@ -5,11 +5,11 @@ using System.Linq;
 using System.Windows;
 using NHotkey;
 using NHotkey.Wpf;
-using Wox.Core.Resource;
-using Wox.Infrastructure.Hotkey;
-using Wox.Infrastructure.UserSettings;
+using Saber.Core.Resource;
+using Saber.Infrastructure.Hotkey;
+using Saber.Infrastructure.UserSettings;
 
-namespace Wox
+namespace Saber
 {
     public partial class CustomQueryHotkeySetting : Window
     {

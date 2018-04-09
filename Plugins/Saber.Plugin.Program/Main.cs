@@ -5,13 +5,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Logger;
-using Wox.Infrastructure.Storage;
-using Wox.Plugin.Program.Programs;
-using Stopwatch = Wox.Infrastructure.Stopwatch;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Logger;
+using Saber.Infrastructure.Storage;
+using Saber.Plugin.Program.Programs;
+using Stopwatch = Saber.Infrastructure.Stopwatch;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     public class Main : ISettingProvider, IPlugin, IPluginI18n, IContextMenu, ISavable
     {

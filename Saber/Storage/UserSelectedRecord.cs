@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
-using Wox.Infrastructure.Storage;
-using Wox.Plugin;
+using Saber.Infrastructure.Storage;
+using Saber.Plugin;
 
-namespace Wox.Storage
+namespace Saber.Storage
 {
     public class UserSelectedRecord
     {

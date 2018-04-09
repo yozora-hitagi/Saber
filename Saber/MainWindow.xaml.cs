@@ -5,11 +5,11 @@ using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Helper;
-using Wox.Infrastructure.UserSettings;
-using Wox.ViewModel;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Helper;
+using Saber.Infrastructure.UserSettings;
+using Saber.ViewModel;
 using Screen = System.Windows.Forms.Screen;
 using ContextMenuStrip = System.Windows.Forms.ContextMenuStrip;
 using DataFormats = System.Windows.DataFormats;
@@ -18,7 +18,7 @@ using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using NotifyIcon = System.Windows.Forms.NotifyIcon;
 
-namespace Wox
+namespace Saber
 {
     public partial class MainWindow
     {

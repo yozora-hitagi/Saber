@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wox.Plugin.Program.Programs
+namespace Saber.Plugin.Program.Programs
 {
     public interface IProgram
     {

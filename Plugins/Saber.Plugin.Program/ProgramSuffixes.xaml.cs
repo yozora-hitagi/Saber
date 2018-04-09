@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     /// <summary>
     /// ProgramSuffixes.xaml 的交互逻辑

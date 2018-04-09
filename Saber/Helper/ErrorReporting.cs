@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Threading;
 using NLog;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Exception;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Exception;
 
-namespace Wox.Helper
+namespace Saber.Helper
 {
     public static class ErrorReporting
     {

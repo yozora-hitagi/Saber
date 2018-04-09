@@ -6,17 +6,17 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Wox.Core;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Http;
-using Wox.Infrastructure.Storage;
-using Wox.Infrastructure.UserSettings;
-using Wox.Plugin;
+using Saber.Core;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Http;
+using Saber.Infrastructure.Storage;
+using Saber.Infrastructure.UserSettings;
+using Saber.Plugin;
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class SettingWindowViewModel : BaseModel
     {

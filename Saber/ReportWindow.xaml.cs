@@ -6,11 +6,11 @@ using System.Text;
 using System.Linq;
 using System.Windows;
 using System.Windows.Documents;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Logger;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Logger;
 
-namespace Wox
+namespace Saber
 {
     internal partial class ReportWindow
     {

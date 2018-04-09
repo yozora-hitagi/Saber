@@ -5,16 +5,16 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 //using Squirrel;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Hotkey;
-using Wox.Infrastructure.Image;
-using Wox.Plugin;
-using Wox.ViewModel;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Hotkey;
+using Saber.Infrastructure.Image;
+using Saber.Plugin;
+using Saber.ViewModel;
 
-namespace Wox
+namespace Saber
 {
     public class PublicAPIInstance : IPublicAPI
     {

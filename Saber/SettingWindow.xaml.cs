@@ -11,16 +11,16 @@ using System.Windows.Navigation;
 using Microsoft.Win32;
 using NHotkey;
 using NHotkey.Wpf;
-using Wox.Core;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Infrastructure;
-using Wox.Infrastructure.UserSettings;
-using Wox.Plugin;
-using Wox.ViewModel;
-using Wox.Infrastructure.Hotkey;
+using Saber.Core;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Infrastructure;
+using Saber.Infrastructure.UserSettings;
+using Saber.Plugin;
+using Saber.ViewModel;
+using Saber.Infrastructure.Hotkey;
 
-namespace Wox
+namespace Saber
 {
     public partial class SettingWindow
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     public class SuffixesConvert : MarkupExtension, IValueConverter
     {

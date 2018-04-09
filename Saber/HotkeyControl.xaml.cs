@@ -5,11 +5,11 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using NHotkey.Wpf;
-using Wox.Core.Resource;
-using Wox.Infrastructure.Hotkey;
-using Wox.Plugin;
+using Saber.Core.Resource;
+using Saber.Infrastructure.Hotkey;
+using Saber.Plugin;
 
-namespace Wox
+namespace Saber
 {
     public partial class HotkeyControl : UserControl
     {

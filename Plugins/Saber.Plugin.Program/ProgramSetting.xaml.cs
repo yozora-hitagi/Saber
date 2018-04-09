@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Wox.Plugin.Program.Programs;
+using Saber.Plugin.Program.Programs;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     /// <summary>
     /// Interaction logic for ProgramSetting.xaml

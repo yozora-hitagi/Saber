@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Wox.Plugin.Program.Programs;
+using Saber.Plugin.Program.Programs;
 
-namespace Wox.Plugin.Program
+namespace Saber.Plugin.Program
 {
     public class Settings
     {

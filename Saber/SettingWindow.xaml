@@ -2,12 +2,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:wox="clr-namespace:Wox"
-        xmlns:vm="clr-namespace:Wox.ViewModel"
+        xmlns:wox="clr-namespace:Saber"
+        xmlns:vm="clr-namespace:Saber.ViewModel"
         xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        xmlns:userSettings="clr-namespace:Wox.Infrastructure.UserSettings;assembly=Wox.Infrastructure"
+        xmlns:userSettings="clr-namespace:Saber.Infrastructure.UserSettings;assembly=Wox.Infrastructure"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        x:Class="Wox.SettingWindow"
+        x:Class="Saber.SettingWindow"
         mc:Ignorable="d"
         Icon="Images\app.png"
         Title="{DynamicResource saber_settings}"
@@ -90,12 +90,12 @@
                     <ColumnDefinition Width="200" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <DockPanel Grid.Column="0">
-                    <TextBlock DockPanel.Dock="Top" Margin="10">
-                        <Hyperlink NavigateUri="{Binding Plugin, Mode=OneWay}" RequestNavigate="OnRequestNavigate">
+                <DockPanel Grid.Column="0" Margin="0,10,0,0">
+                    <!--<TextBlock DockPanel.Dock="Top" Margin="10">
+                        <Hyperlink  NavigateUri="{Binding Plugin, Mode=OneWay}" RequestNavigate="OnRequestNavigate">
                             <Run Text="{DynamicResource browserMorePlugins}" />
                         </Hyperlink>
-                    </TextBlock>
+                    </TextBlock>-->
                     <ListBox SelectedIndex="0" SelectedItem="{Binding SelectedPlugin}"
                              ItemsSource="{Binding PluginViewModels}"
                              Margin="10, 0, 10, 10" ScrollViewer.HorizontalScrollBarVisibility="Disabled">

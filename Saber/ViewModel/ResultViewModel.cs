@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Media;
 using System.Windows.Threading;
-using Wox.Infrastructure.Image;
-using Wox.Infrastructure.Logger;
-using Wox.Plugin;
+using Saber.Infrastructure.Image;
+using Saber.Infrastructure.Logger;
+using Saber.Plugin;
 
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class ResultViewModel : BaseModel
     {

@@ -1,11 +1,11 @@
 ﻿using System.Windows;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Infrastructure.Exception;
-using Wox.Infrastructure.UserSettings;
-using Wox.Plugin;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Infrastructure.Exception;
+using Saber.Infrastructure.UserSettings;
+using Saber.Plugin;
 
-namespace Wox
+namespace Saber
 {
     public partial class ActionKeywords : Window
     {

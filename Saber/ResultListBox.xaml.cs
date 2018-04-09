@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Wox
+namespace Saber
 {
     [Synchronization]
     public partial class ResultListBox

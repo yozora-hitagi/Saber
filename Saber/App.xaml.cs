@@ -3,19 +3,19 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using Wox.Core;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Http;
-using Wox.Infrastructure.Image;
-using Wox.Infrastructure.Logger;
-using Wox.Infrastructure.UserSettings;
-using Wox.ViewModel;
-using Stopwatch = Wox.Infrastructure.Stopwatch;
+using Saber.Core;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Http;
+using Saber.Infrastructure.Image;
+using Saber.Infrastructure.Logger;
+using Saber.Infrastructure.UserSettings;
+using Saber.ViewModel;
+using Stopwatch = Saber.Infrastructure.Stopwatch;
 
-namespace Wox
+namespace Saber
 {
     public partial class App : IDisposable, ISingleInstanceApp
     {

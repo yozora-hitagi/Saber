@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using Wox.Plugin;
-using Wox.Core.Resource;
-using Wox.Infrastructure.Image;
+using Saber.Plugin;
+using Saber.Core.Resource;
+using Saber.Infrastructure.Image;
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class PluginViewModel : BaseModel
     {

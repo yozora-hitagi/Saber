@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from wox import Wox
+from saber import Saber
 from lunar import Lunar
 from dateutil.parser import parse
 import datetime
@@ -17,7 +17,7 @@ week_day_dict = {
 }
 
 
-class ChineseCalendar(Wox):
+class ChineseCalendar(Saber):
     def query(self, query):
         result = []
         try:

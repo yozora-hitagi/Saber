@@ -8,18 +8,18 @@ using System.Windows;
 using System.Windows.Input;
 using NHotkey;
 using NHotkey.Wpf;
-using Wox.Core.Plugin;
-using Wox.Core.Resource;
-using Wox.Helper;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Hotkey;
-using Wox.Infrastructure.Image;
-using Wox.Infrastructure.Storage;
-using Wox.Infrastructure.UserSettings;
-using Wox.Plugin;
-using Wox.Storage;
+using Saber.Core.Plugin;
+using Saber.Core.Resource;
+using Saber.Helper;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Hotkey;
+using Saber.Infrastructure.Image;
+using Saber.Infrastructure.Storage;
+using Saber.Infrastructure.UserSettings;
+using Saber.Plugin;
+using Saber.Storage;
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class MainViewModel : BaseModel, ISavable
     {

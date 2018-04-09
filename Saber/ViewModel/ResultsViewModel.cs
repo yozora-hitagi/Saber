@@ -4,10 +4,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Data;
-using Wox.Infrastructure.UserSettings;
-using Wox.Plugin;
+using Saber.Infrastructure.UserSettings;
+using Saber.Plugin;
 
-namespace Wox.ViewModel
+namespace Saber.ViewModel
 {
     public class ResultsViewModel : BaseModel
     {

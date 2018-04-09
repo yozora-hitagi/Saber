@@ -14,12 +14,12 @@ using Windows.ApplicationModel;
 using Windows.Management.Deployment;
 using AppxPackaing;
 using Shell;
-using Wox.Infrastructure;
-using Wox.Infrastructure.Logger;
+using Saber.Infrastructure;
+using Saber.Infrastructure.Logger;
 using IStream = AppxPackaing.IStream;
 using Rect = System.Windows.Rect;
 
-namespace Wox.Plugin.Program.Programs
+namespace Saber.Plugin.Program.Programs
 {
     [Serializable]
     public class UWP
