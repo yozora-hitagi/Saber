@@ -52,7 +52,7 @@ namespace Saber
         {
             Stopwatch.Normal("|App.OnStartup|Startup cost", () =>
             {
-                Log.Info("|App.OnStartup|Begin Wox startup ----------------------------------------------------");
+                Log.Info("|App.OnStartup|Begin Saber startup ----------------------------------------------------");
                 Log.Info($"|App.OnStartup|Runtime info:{ErrorReporting.RuntimeInfo()}");
                 RegisterAppDomainExceptions();
                 RegisterDispatcherUnhandledException();
@@ -90,7 +90,7 @@ namespace Saber
 
                 _mainVM.MainWindowVisibility = _settings.HideOnStartup ? Visibility.Hidden : Visibility.Visible;
                 
-                Log.Info("|App.OnStartup|End Wox startup ----------------------------------------------------  ");
+                Log.Info("|App.OnStartup|End Saber startup ----------------------------------------------------  ");
             });
         }
 

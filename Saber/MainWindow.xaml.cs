@@ -139,6 +139,7 @@ namespace Saber
                  
                 }
             };
+            
         }
 
         private void InitProgressbarAnimation()

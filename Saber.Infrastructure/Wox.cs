@@ -17,7 +17,6 @@ namespace Saber.Infrastructure
         public static readonly string PluginsDirectory = Path.Combine(DataDirectory, Plugins);
         public static readonly string PreinstalledDirectory = Path.Combine(ProgramDirectory, Plugins);
         public const string Repository = "https://github.com/yozora-hitagi/Saber";
-        public const string Issue = "https://github.com/Wox-launcher/Wox/issues/new";
         public static readonly string Version = FileVersionInfo.GetVersionInfo(Assembly.Location.NonNull()).ProductVersion;
 
         public static readonly string DefaultIcon = Path.Combine(ProgramDirectory, "Images", "app.png");

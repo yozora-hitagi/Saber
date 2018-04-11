@@ -76,6 +76,8 @@ namespace Saber
 
             Dispatcher.InvokeAsync(async () =>
                                    {
+                                       await System.Threading.Tasks.Task.Delay(5000);
+                                       
                                        if (!closing)
                                        {
                                            closing = true;

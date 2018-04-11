@@ -3,10 +3,10 @@
     "ActionKeyword":"*",
     "Name":"Calculator",
     "Description":"Provide mathematical calculations.(Try 5*3-2 in Wox)",
-    "Author":"cxfksword",
+    "Author":"yozora",
     "Version":"1.0.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"https://github.com/yozora-hitagi/Saber",
     "ExecuteFileName":"Saber.Plugin.Caculator.dll",
     "IcoPath":"Images\\calculator.png"
 }

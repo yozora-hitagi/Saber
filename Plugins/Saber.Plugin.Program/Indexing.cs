@@ -85,6 +85,8 @@ namespace Saber.Plugin.Program
                     Infrastructure.Stopwatch.Normal("|Wox.Plugin.Program.Main|Program index cost", index);
 
                     Text = _context.API.GetTranslation("wox_plugin_program_indexing_ok");
+
+                    _context.API.ShowMsg(_context.API.GetTranslation("wox_plugin_program_indexing_ok"),"Finish Indexing!",_context.CurrentPluginMetadata.IcoPath);
                 }
                 catch (Exception e)
                 {

@@ -192,14 +192,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <DockPanel Grid.Column="0">
-                    <TextBlock DockPanel.Dock="Top" Margin="10" HorizontalAlignment="Left">
+                    <!--<TextBlock DockPanel.Dock="Top" Margin="10" HorizontalAlignment="Left">
                         <Hyperlink NavigateUri="{Binding Theme, Mode=OneWay}" RequestNavigate="OnRequestNavigate">
                             <Run Text="{DynamicResource browserMoreThemes}" />
                         </Hyperlink>
-                    </TextBlock>
+                    </TextBlock>-->
 
                     <ListBox SelectedItem="{Binding SelectedTheme}" ItemsSource="{Binding Themes}"
-                             Margin="10, 0, 10, 10" Width="180"
+                             Margin="10, 10, 10, 10" Width="180"
                              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                 </DockPanel>
                 <Grid Margin="0" Grid.Column="1">
@@ -207,7 +207,7 @@
                         <RowDefinition />
                         <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
-                    <StackPanel Background="{Binding PreviewBackground}" Grid.Row="0" Margin="0">
+                    <StackPanel Background="{Binding PreviewBackground}" Grid.Row="0" Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal" Margin="10"
                                     HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Border Width="500" Style="{DynamicResource WindowBorderStyle}">
@@ -216,7 +216,7 @@
                                         <RowDefinition Height="50" />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <TextBox Text="{DynamicResource helloWox}" IsReadOnly="True"
+                                    <TextBox Text="{DynamicResource helloSaber}" IsReadOnly="True"
                                              Style="{DynamicResource QueryBoxStyle}" Grid.Row="0" />
                                     <ContentControl Visibility="Visible" Grid.Row="1">
                                         <wox:ResultListBox DataContext="{Binding PreviewResults}" />

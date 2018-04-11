@@ -27,7 +27,7 @@ namespace Saber
             var directory = new DirectoryInfo(path);
             var log = directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First();
 
-            var paragraph = Hyperlink("Please open new issue in: ", Constant.Issue);
+            var paragraph = Hyperlink("Please open new issue in: ", Constant.Saber);
             paragraph.Inlines.Add($"1. upload log file: {log.FullName}\n");
             paragraph.Inlines.Add($"2. copy below exception message");
             ErrorTextbox.Document.Blocks.Add(paragraph);

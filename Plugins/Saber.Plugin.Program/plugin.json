@@ -7,7 +7,7 @@
     "Version":"1.2.0",
     "Language":"csharp",
 	"CanDisabled":false,
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"https://github.com/yozora-hitagi/Saber",
     "ExecuteFileName":"Saber.Plugin.Program.dll",
     "IcoPath":"Images\\program.png"
 }

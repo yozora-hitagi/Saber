@@ -77,9 +77,9 @@ namespace Saber.Core.Plugin
 
                         if (!String.IsNullOrEmpty(result1.JsonRPCAction.Method))
                         {
-                            if (result1.JsonRPCAction.Method.StartsWith("Wox."))
+                            if (result1.JsonRPCAction.Method.StartsWith("Saber."))
                             {
-                                ExecuteWoxAPI(result1.JsonRPCAction.Method.Substring(4), result1.JsonRPCAction.Parameters);
+                                ExecuteSaberAPI(result1.JsonRPCAction.Method.Substring(4), result1.JsonRPCAction.Parameters);
                             }
                             else
                             {
@@ -87,9 +87,9 @@ namespace Saber.Core.Plugin
                                 JsonRPCRequestModel jsonRpcRequestModel = JsonConvert.DeserializeObject<JsonRPCRequestModel>(actionReponse);
                                 if (jsonRpcRequestModel != null
                                     && !String.IsNullOrEmpty(jsonRpcRequestModel.Method)
-                                    && jsonRpcRequestModel.Method.StartsWith("Wox."))
+                                    && jsonRpcRequestModel.Method.StartsWith("Saber."))
                                 {
-                                    ExecuteWoxAPI(jsonRpcRequestModel.Method.Substring(4), jsonRpcRequestModel.Parameters);
+                                    ExecuteSaberAPI(jsonRpcRequestModel.Method.Substring(4), jsonRpcRequestModel.Parameters);
                                 }
                             }
                         }
@@ -105,7 +105,7 @@ namespace Saber.Core.Plugin
             }
         }
 
-        private void ExecuteWoxAPI(string method, object[] parameters)
+        private void ExecuteSaberAPI(string method, object[] parameters)
         {
             MethodInfo methodInfo = PluginManager.API.GetType().GetMethod(method);
             if (methodInfo != null)
