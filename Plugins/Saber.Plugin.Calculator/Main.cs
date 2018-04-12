@@ -6,6 +6,9 @@ using YAMP;
 
 namespace Saber.Plugin.Caculator
 {
+
+    //https://github.com/FlorianRappl/YAMP
+
     public class Main : IPlugin, IPluginI18n
     {
         private static Regex regValidExpressChar = new Regex(
@@ -18,14 +21,17 @@ namespace Saber.Plugin.Caculator
                         @"[ei]|[0-9]|[\+\-\*\/\^\., ""]|[\(\)\|\!\[\]]" +
                         @")+$", RegexOptions.Compiled);
         private static Regex regBrackets = new Regex(@"[\(\)\[\]]", RegexOptions.Compiled);
-        private static ParseContext yampContext;
+
+
+        private static Parser parser;
+
         private PluginInitContext context { get; set; }
 
         static Main()
         {
-            yampContext = Parser.PrimaryContext;
-            Parser.InteractiveMode = false;
-            Parser.UseScripting = false;
+            parser = new Parser();
+            parser.InteractiveMode = false;
+            parser.UseScripting = false;
         }
 
         public List<Result> Query(Query query)
@@ -36,7 +42,8 @@ namespace Saber.Plugin.Caculator
 
             try
             {
-                var result = yampContext.Run(query.Search);
+                var result = parser.Parse(query.Search);
+                result.Run();
                 if (result.Output != null && !string.IsNullOrEmpty(result.Result))
                 {
                     return new List<Result>
