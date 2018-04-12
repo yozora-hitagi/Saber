@@ -4,7 +4,7 @@
     <!--MainWindow-->
     <system:String x:Key="registerHotkeyFailed">Failed to register hotkey: {0}</system:String>
     <system:String x:Key="couldnotStartCmd">Could not start {0}</system:String>
-    <system:String x:Key="invalidWoxPluginFileFormat">Invalid Wox plugin file format</system:String>
+    <system:String x:Key="invalidSaberPluginFileFormat">Invalid Saber plugin file format</system:String>
     <system:String x:Key="setAsTopMostInThisQuery">Set as topmost in this query</system:String>
     <system:String x:Key="cancelTopMostInThisQuery">Cancel topmost in this query</system:String>
     <system:String x:Key="executeQuery">Execute query: {0}</system:String>

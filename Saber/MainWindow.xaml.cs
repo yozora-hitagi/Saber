@@ -17,6 +17,7 @@ using DragEventArgs = System.Windows.DragEventArgs;
 using KeyEventArgs = System.Windows.Input.KeyEventArgs;
 using MessageBox = System.Windows.MessageBox;
 using NotifyIcon = System.Windows.Forms.NotifyIcon;
+using Saber.Infrastructure;
 
 namespace Saber
 {
@@ -189,13 +190,13 @@ namespace Saber
             {
                 // Note that you can have more than one file.
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-                if (files[0].ToLower().EndsWith(".wox"))
+                if (files[0].ToLower().EndsWith(Constant.Saber_Plugin_Package_Suffix))
                 {
                     PluginManager.InstallPlugin(files[0]);
                 }
                 else
                 {
-                    MessageBox.Show(InternationalizationManager.Instance.GetTranslation("invalidWoxPluginFileFormat"));
+                    MessageBox.Show(InternationalizationManager.Instance.GetTranslation("invalidSaberPluginFileFormat"));
                 }
             }
             e.Handled = false;

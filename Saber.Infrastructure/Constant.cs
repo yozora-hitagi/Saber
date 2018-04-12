@@ -25,6 +25,8 @@ namespace Saber.Infrastructure
         public static string PythonPath;
         public static string EverythingSDKPath;
 
-        public static readonly string DELETE_SIGN = "DELETE_SIGN";
+        public const string DELETE_SIGN = "DELETE_SIGN";
+
+        public const string Saber_Plugin_Package_Suffix = ".saber";
     }
 }
