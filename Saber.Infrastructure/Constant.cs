@@ -24,5 +24,7 @@ namespace Saber.Infrastructure
 
         public static string PythonPath;
         public static string EverythingSDKPath;
+
+        public static readonly string DELETE_SIGN = "DELETE_SIGN";
     }
 }

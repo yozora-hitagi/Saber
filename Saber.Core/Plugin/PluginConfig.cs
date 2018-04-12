@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Saber.Infrastructure.Exception;
 using Saber.Infrastructure.Logger;
 using Saber.Plugin;
+using Saber.Infrastructure;
 
 namespace Saber.Core.Plugin
 {
@@ -14,7 +15,6 @@ namespace Saber.Core.Plugin
     internal abstract class PluginConfig
     {
         private const string PluginConfigName = "plugin.json";
-        private static readonly List<PluginMetadata> PluginMetadatas = new List<PluginMetadata>();
 
         /// <summary>
         /// Parse plugin metadata in giving directories
@@ -23,18 +23,13 @@ namespace Saber.Core.Plugin
         /// <returns></returns>
         public static List<PluginMetadata> Parse(string[] pluginDirectories)
         {
-            PluginMetadatas.Clear();
+            List<PluginMetadata> PluginMetadatas = new List<PluginMetadata>();
+           
             var directories = pluginDirectories.SelectMany(Directory.GetDirectories);
-            ParsePluginConfigs(directories);
-            return PluginMetadatas;
-        }
 
-        private static void ParsePluginConfigs(IEnumerable<string> directories)
-        {
-            // todo use linq when diable plugin is implmented since parallel.foreach + list is not thread saft
-            foreach (var directory in directories)
+             foreach (var directory in directories)
             {
-                if (File.Exists(Path.Combine(directory, "NeedDelete.txt")))
+                if (File.Exists(Path.Combine(directory, Constant.DELETE_SIGN)))
                 {
                     try
                     {
@@ -54,7 +49,9 @@ namespace Saber.Core.Plugin
                     }
                 }
             }
+            return PluginMetadatas;
         }
+
 
         private static PluginMetadata GetPluginMetadata(string pluginDirectory)
         {

@@ -4,6 +4,7 @@ using System.Windows;
 using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
 using Saber.Plugin;
+using Saber.Infrastructure;
 
 namespace Saber.Core.Plugin
 {
@@ -68,7 +69,7 @@ namespace Saber.Core.Plugin
                     if (existingPlugin != null && Directory.Exists(existingPlugin.Metadata.PluginDirectory))
                     {
                         //when plugin is in use, we can't delete them. That's why we need to make plugin folder a random name
-                        File.Create(Path.Combine(existingPlugin.Metadata.PluginDirectory, "NeedDelete.txt")).Close();
+                        File.Create(Path.Combine(existingPlugin.Metadata.PluginDirectory, Constant.DELETE_SIGN)).Close();
                     }
 
                     UnZip(path, newPluginPath, true);
