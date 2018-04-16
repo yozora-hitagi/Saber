@@ -16,6 +16,7 @@ namespace Saber.Plugin.Everything
     public class Main : IPlugin, ISettingProvider, IPluginI18n, IContextMenu, ISavable
     {
         private readonly EverythingAPI _api = new EverythingAPI();
+        
 
         public const string DLL = "Everything.dll";
 
@@ -137,18 +138,13 @@ namespace Saber.Plugin.Everything
 
             var pluginDirectory = context.CurrentPluginMetadata.PluginDirectory;
             const string sdk = "EverythingSDK";
-            var bundledSDKDirectory = Path.Combine(pluginDirectory, sdk, CpuType());
-            var sdkDirectory = Path.Combine(_storage.DirectoryPath, sdk, CpuType());
+            var bundledSDKDirectory = Path.Combine(pluginDirectory, sdk);
+            var sdkDirectory = Path.Combine(_storage.DirectoryPath, sdk);
             Helper.ValidateDataDirectory(bundledSDKDirectory, sdkDirectory);
 
-            var sdkPath = Path.Combine(sdkDirectory, DLL);
+            var sdkPath = Path.Combine(sdkDirectory, Environment.Is64BitOperatingSystem ? "x64" : "x86" ,DLL);
             Constant.EverythingSDKPath = sdkPath;
             LoadLibrary(sdkPath);
-        }
-
-        private static string CpuType()
-        {
-            return Environment.Is64BitOperatingSystem ? "x64" : "x86";
         }
 
         public string GetTranslatedPluginTitle()

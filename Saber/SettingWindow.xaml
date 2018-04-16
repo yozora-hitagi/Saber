@@ -147,7 +147,7 @@
                                                Cursor="Hand" MouseUp="OnPluginNameClick" FontSize="24"
                                                HorizontalAlignment="Left" />
                                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right"
-                                                VerticalAlignment="Bottom" Opacity="0.5">
+                                                VerticalAlignment="Bottom" Opacity="0.5" Visibility="Hidden">
                                         <TextBlock Text="{DynamicResource author}" />
                                         <TextBlock Text=": " />
                                         <TextBlock Text="{Binding PluginPair.Metadata.Author}" ToolTip="{Binding PluginPair.Metadata.Author}" />

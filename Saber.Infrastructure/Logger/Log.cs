@@ -13,12 +13,6 @@ namespace Saber.Infrastructure.Logger
 
         static Log()
         {
-            //var path = Path.Combine(Constant.DataDirectory, DirectoryName, Constant.Version);
-            //if (!Directory.Exists(path))
-            //{
-            //    Directory.CreateDirectory(path);
-            //}
-
             var configuration = new LoggingConfiguration();
             var target = new FileTarget();
             configuration.AddTarget("file", target);
@@ -82,21 +76,22 @@ namespace Saber.Infrastructure.Logger
 
                 System.Diagnostics.Debug.WriteLine($"ERROR|{message}");
 
-                logger.Error("-------------------------- Begin exception --------------------------");
+                //logger.Error("-------------------------- Begin exception --------------------------");
                 logger.Error(unprefixed);
+                logger.Error(e);
+                //do
+                //{
+                //    logger.Error($"Exception fulle name: <{e.GetType().FullName}>");
+                //    logger.Error($"Exception message: <{e.Message}>");
+                //    logger.Error($"Exception stack trace: <{e.StackTrace}>");
+                //    logger.Error($"Exception source: <{e.Source}>");
+                //    logger.Error($"Exception target site: <{e.TargetSite}>");
+                //    logger.Error($"Exception HResult: <{e.HResult}>");
+                //    e = e.InnerException;
+                //} while (e != null);
 
-                do
-                {
-                    logger.Error($"Exception fulle name: <{e.GetType().FullName}>");
-                    logger.Error($"Exception message: <{e.Message}>");
-                    logger.Error($"Exception stack trace: <{e.StackTrace}>");
-                    logger.Error($"Exception source: <{e.Source}>");
-                    logger.Error($"Exception target site: <{e.TargetSite}>");
-                    logger.Error($"Exception HResult: <{e.HResult}>");
-                    e = e.InnerException;
-                } while (e != null);
-
-                logger.Error("-------------------------- End   exception --------------------------");
+                //logger.Error("-------------------------- End   exception --------------------------");
+                
             }
             else
             {

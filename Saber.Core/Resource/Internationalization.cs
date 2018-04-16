@@ -27,11 +27,11 @@ namespace Saber.Core.Resource
             LoadDefaultLanguage();
             // we don't want to load /Languages/en.xaml twice
             // so add wox language directory after load plugin language files
-            AddWoxLanguageDirectory();
+            AddSaberLanguageDirectory();
         }
 
 
-        private void AddWoxLanguageDirectory()
+        private void AddSaberLanguageDirectory()
         {
             var directory = Path.Combine(Constant.ProgramDirectory, Folder);
             _languageDirectories.Add(directory);
@@ -180,14 +180,14 @@ namespace Saber.Core.Resource
                 else
                 {
                     Log.Error($"|Internationalization.LanguageFile|Language path can't be found <{path}>");
-                    string english = Path.Combine(folder, DefaultFile);
-                    if (File.Exists(english))
+                    string chinese = Path.Combine(folder, DefaultFile);
+                    if (File.Exists(chinese))
                     {
-                        return english;
+                        return chinese;
                     }
                     else
                     {
-                        Log.Error($"|Internationalization.LanguageFile|Default English Language path can't be found <{path}>");
+                        Log.Error($"|Internationalization.LanguageFile|Default Chinese Language path can't be found <{path}>");
                         return string.Empty;
                     }
                 }

@@ -239,7 +239,7 @@ namespace Saber
                     var uri = new Uri(website);
                     if (Uri.CheckSchemeName(uri.Scheme))
                     {
-                        Process.Start(website);
+                        //Process.Start(website);
                     }
                 }
             }
