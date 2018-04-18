@@ -47,6 +47,7 @@ namespace Saber.Plugin.Program
 
         }
 
+
         public void Save()
         {
             _settingsStorage.Save();
@@ -58,11 +59,52 @@ namespace Saber.Plugin.Program
         {
             lock (IndexLock)
             {
+                var commands = Commands();
+                var results = new List<Result>();
+                foreach (var c in commands)
+                {
+                    var titleScore = StringMatcher.Score(c.Title, query.Search);
+                    var subTitleScore = StringMatcher.Score(c.SubTitle, query.Search);
+                    var score = Math.Max(titleScore, subTitleScore);
+                    if (score > 0)
+                    {
+                        c.Score = score;
+                        results.Add(c);
+                    }
+                }
+
                 var results1 = _win32s.AsParallel().Select(p => p.Result(query.Search, _context.API));
                 var results2 = _uwps.AsParallel().Select(p => p.Result(query.Search, _context.API));
-                var result = results1.Concat(results2).Where(r => r.Score > 0).ToList();
+
+                results.AddRange(results1);
+                results.AddRange(results2);
+
+                // var result = results1.Concat(results2).Where(r => r.Score > 0).ToList();
+
+                var result = results.Where(r => r.Score > 0).ToList();
+                
                 return result;
             }
+        }
+
+        private List<Result> Commands()
+        {
+            var results = new List<Result>();
+            results.AddRange(new[]
+            {new Result
+                {
+                    Title = "Reindex",
+                    SubTitle = _context.API.GetTranslation("wox_plugin_program_reindex"),
+                    IcoPath = "Images\\program.png",
+                    Action = c =>
+                    {
+                        _indexing.start();
+                        return true;
+                    }
+                }
+            });
+
+            return results;
         }
 
         public void Init(PluginInitContext context)
