@@ -3,10 +3,10 @@
     "ActionKeyword":">",
     "Name":"Shell",
     "Description":"Provide executing commands from Saber. Commands should start with >",
-    "Author":"yozora",
+    "Author":"",
     "Version":"1.0.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.Shell.dll",
     "IcoPath":"Images\\shell.png"
 }

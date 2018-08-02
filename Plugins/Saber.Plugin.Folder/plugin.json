@@ -3,10 +3,10 @@
     "ActionKeyword":"*",
     "Name":"Folder",
     "Description":"Open favorite folder from wox directorily",
-    "Author":"qianlifeng",
+    "Author":"",
     "Version":"1.0.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.Folder.dll",
     "IcoPath":"Images\\folder.png"
 }

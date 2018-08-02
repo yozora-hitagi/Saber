@@ -3,10 +3,10 @@
     "ActionKeyword":"*",
     "Name":"URL",
     "Description":"Open the typed URL from Saber",
-    "Author":"qianlifeng",
+    "Author":"",
     "Version":"1.0.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.Url.dll",
     "IcoPath":"Images\\url.png"
 }

@@ -24,10 +24,10 @@
     ],
     "Name": "Web Searches",
     "Description": "Provide the web search ability",
-    "Author": "qianlifeng",
+    "Author": "",
     "Version": "1.0.0",
     "Language": "csharp",
-    "Website": "http://www.getwox.com/plugin",
+    "Website": "",
     "ExecuteFileName": "Saber.Plugin.WebSearch.dll",
     "IcoPath": "Images\\web_search.png"
 }

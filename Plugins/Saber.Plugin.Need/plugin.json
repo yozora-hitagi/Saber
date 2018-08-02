@@ -3,10 +3,10 @@
     "ActionKeyword":"need",
     "Name":"Need",
     "Description":"Get and set infos",
-    "Author":"Shinao",
+    "Author":"",
     "Version":"1.0.1",
     "Language":"csharp",
-    "Website":"https://github.com/Shinao/Wox.Plugins",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.Need.dll",
     "IcoPath":"icon.png"
 }

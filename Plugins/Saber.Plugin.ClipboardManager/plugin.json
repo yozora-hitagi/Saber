@@ -3,10 +3,10 @@
     "ActionKeyword":"cb",
     "Name":"Clipboard History",
     "Description":"clipboard history search",
-    "Author":"yozora",
+    "Author":"",
     "Version":"1.1.0",
     "Language":"csharp",
-    "Website":"https://github.com/qianlifeng/Wox.Plugin.ClipboardManager",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.Clipboard.dll",
 	"IcoPath": "Images\\clipboard.png"
 }
