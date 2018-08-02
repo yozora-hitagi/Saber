@@ -39,8 +39,8 @@ function Copy-Resources ($path, $config) {
     #Copy-Item -Recurse -Force $project\Images\* $target\Images\
     #Copy-Item -Recurse -Force $path\Plugins\HelloWorldPython $target\Plugins\HelloWorldPython
 
-	Write-Host "Copy $path\Plugins\Lunar to $target\Plugins"
-    Copy-Item -Recurse -Force $path\Plugins\Lunar $target\Plugins
+	#Write-Host "Copy $path\Plugins\Lunar to $target\Plugins"
+    #Copy-Item -Recurse -Force $path\Plugins\Lunar $target\Plugins
     
 	#JsonRPC 已经加到vs项目中， 会自动copy
 	#Copy-Item -Recurse -Force $path\JsonRPC $target\JsonRPC

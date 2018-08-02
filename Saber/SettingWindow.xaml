@@ -5,7 +5,7 @@
         xmlns:wox="clr-namespace:Saber"
         xmlns:vm="clr-namespace:Saber.ViewModel"
         xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        xmlns:userSettings="clr-namespace:Saber.Infrastructure.UserSettings;assembly=Wox.Infrastructure"
+        xmlns:userSettings="clr-namespace:Saber.Infrastructure.UserSettings;assembly=Saber.Infrastructure"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         x:Class="Saber.SettingWindow"
         mc:Ignorable="d"
