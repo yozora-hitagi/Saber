@@ -3,10 +3,10 @@
     "ActionKeyword":"*",
     "Name":"Control Panel",
     "Description":"Search within the Control Panel.",
-    "Author":"CoenraadS",
+    "Author":"",
     "Version":"1.0.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com/plugin",
+    "Website":"",
     "ExecuteFileName":"Saber.Plugin.ControlPanel.dll",
     "IcoPath":"Images\\ControlPanel.png"
 }

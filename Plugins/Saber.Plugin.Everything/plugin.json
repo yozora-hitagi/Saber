@@ -3,10 +3,10 @@
     "ActionKeyword":"*",
     "Name":"Everything",
     "Description":"Search Everything",
-    "Author":"qianlifeng,orzfly",
+    "Author":"",
     "Version":"1.1.0",
     "Language":"csharp",
-    "Website":"http://www.getwox.com",
+    "Website":"",
     "IcoPath":"Images\\find.png",
     "ExecuteFileName":"Saber.Plugin.Everything.dll"
 }
