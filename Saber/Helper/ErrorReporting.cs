@@ -32,7 +32,7 @@ namespace Saber.Helper
 
         public static string RuntimeInfo()
         {
-            var info = $"\nWox version: {Constant.Version}" +
+            var info = $"\nSaber version: {Constant.Version}" +
                        $"\nOS Version: {Environment.OSVersion.VersionString}" +
                        $"\nIntPtr Length: {IntPtr.Size}" +
                        $"\nx64: {Environment.Is64BitOperatingSystem}";
