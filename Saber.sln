@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{3A73F5A7-0335-40D8-BF7C-F20BE5D0BA87}"
 EndProject
@@ -10,7 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		LICENSE = LICENSE
-		Scripts\post_build.ps1 = Scripts\post_build.ps1
 		SolutionAssemblyInfo.cs = SolutionAssemblyInfo.cs
 	EndProjectSection
 EndProject
@@ -350,5 +349,8 @@ Global
 		{403B57F2-1856-4FC7-8A24-36AB346B763E} = {3A73F5A7-0335-40D8-BF7C-F20BE5D0BA87}
 		{8C14DC11-2737-4DCB-A121-5D7BDD57FEA2} = {3A73F5A7-0335-40D8-BF7C-F20BE5D0BA87}
 		{7F5D6461-5DE6-44C9-8470-C53A10F52D5C} = {3A73F5A7-0335-40D8-BF7C-F20BE5D0BA87}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {61B78D48-F72E-4D03-AEA2-79A0569AD8D5}
 	EndGlobalSection
 EndGlobal
