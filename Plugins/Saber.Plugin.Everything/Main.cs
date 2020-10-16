@@ -201,5 +201,10 @@ namespace Saber.Plugin.Everything
         {
             return new EverythingSettings(_settings);
         }
+
+        public PluginMetadata Metadata()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -15,6 +15,20 @@ namespace Saber.Plugin.Clipboard
         private PluginInitContext context;
         List<string> dataList = new List<string>();
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+
+
+            metadata = new PluginMetadata();
+            metadata.ID = "D2D2C23B084D411DB66FE0C79D6C2A6C";
+            metadata.Name = "Clipboard History";
+            metadata.ActionKeyword = "cb";
+            metadata.IcoPath = "Images\\clipboard.png";
+        }
+
         public List<Result> Query(Query query)
         {
             var results = new List<Result>();
@@ -80,6 +94,11 @@ namespace Saber.Plugin.Clipboard
                     }
                 }
             }
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

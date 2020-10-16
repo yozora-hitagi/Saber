@@ -25,13 +25,23 @@ namespace Saber.Plugin.Caculator
 
         private static Parser parser;
 
+
         private PluginInitContext context { get; set; }
+
+        private static PluginMetadata metadata;
 
         static Main()
         {
             parser = new Parser();
             parser.InteractiveMode = false;
             parser.UseScripting = false;
+
+
+            metadata = new PluginMetadata();
+            metadata.ID = "CEA0FDFC6D3B4085823D60DC76F28855";
+            metadata.Name = "Calculator";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\calculator.png";
         }
 
         public List<Result> Query(Query query)
@@ -101,12 +111,17 @@ namespace Saber.Plugin.Caculator
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_caculator_plugin_name");
+            return "计算器";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_caculator_plugin_description");
+            return "为Saber提供数学计算能力。(试着在Saber输入 5*3-2)";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Saber.Infrastructure;
 using Saber.Infrastructure.Exception;
 using Saber.Infrastructure.Logger;
@@ -23,9 +24,100 @@ namespace Saber.Core.Plugin
             var csharpPlugins = CSharpPlugins(metadatas).ToList();
             var pythonPlugins = PythonPlugins(metadatas, settings.PythonDirectory);
             var executablePlugins = ExecutablePlugins(metadatas);
-            var plugins = csharpPlugins.Concat(pythonPlugins).Concat(executablePlugins).ToList();
+
+            var csharpAIOPlugins = CSharpAIOPlugins(settings);
+
+            var plugins = csharpPlugins.Concat(pythonPlugins).Concat(executablePlugins).Concat(csharpAIOPlugins).ToList();
             return plugins;
         }
+
+        /// <summary>
+        /// 
+        /// all in one 把所有信息打包 成单个 dll 的插件导入，扫描程序根目录
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static IEnumerable<PluginPair> CSharpAIOPlugins(PluginsSettings settings)
+        {
+
+            var plugins = new List<PluginPair>();
+
+            var sources = Directory.GetFiles(Constant.ProgramDirectory).Where(o=>  Regex.IsMatch(Path.GetFileName(o), "Saber.Plugin.[-a-zA-Z_0-9.]+.dll"));
+
+            foreach( var source in sources)
+            {
+                PluginMetadata metadata = null;
+                var milliseconds = Stopwatch.Debug($"|PluginsLoader.CSharpAIOPlugins|Constructor init cost for {source}", () =>
+                {
+
+                    Assembly assembly;
+                    try
+                    {
+                        assembly = Assembly.Load(AssemblyName.GetAssemblyName(source));
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Exception($"|PluginsLoader.CSharpAIOPlugins|Couldn't load assembly for {source}", e);
+                        return;
+                    }
+                    var types = assembly.GetTypes();
+                    Type type;
+                    try
+                    {
+                        type = types.First(o => o.IsClass && !o.IsAbstract && o.GetInterfaces().Contains(typeof(IPlugin)));
+                    }
+                    catch (InvalidOperationException e)
+                    {
+                        Log.Exception($"|PluginsLoader.CSharpAIOPlugins|Can't find class implement IPlugin for <{source}>", e);
+                        return;
+                    }
+                    IPlugin plugin;
+                    try
+                    {
+                        plugin = (IPlugin)Activator.CreateInstance(type);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Exception($"|PluginsLoader.CSharpAIOPlugins|Can't create instance for <{source}>", e);
+                        return;
+                    }
+                    try
+                    {
+                        if (plugin.Metadata() == null)
+                        {
+                            Log.Error($"|PluginsLoader.CSharpAIOPlugins|Metadata is null for <{source}>");
+                            return;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Exception($"|PluginsLoader.CSharpAIOPlugins|Metadata for <{source}>", e);
+                        return;
+                    }
+
+                    settings.UpdatePluginSettings(plugin.Metadata());
+                    plugin.Metadata().ExecuteFileName = new FileInfo(source).Name;
+                    plugin.Metadata().PluginDirectory = Constant.ProgramDirectory;
+
+                    PluginPair pair = new PluginPair
+                    {
+                        Plugin = plugin,
+                        Metadata = plugin.Metadata()
+                    };
+                    metadata = plugin.Metadata();
+                    plugins.Add(pair);
+                });
+
+                if (metadata != null)
+                {
+                    metadata.InitTime += milliseconds;
+                }
+               
+            }
+
+            return plugins;
+        }
+
 
         public static IEnumerable<PluginPair> CSharpPlugins(List<PluginMetadata> source)
         {

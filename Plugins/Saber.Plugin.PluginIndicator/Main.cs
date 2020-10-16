@@ -8,6 +8,20 @@ namespace Saber.Plugin.PluginIndicator
     {
         private PluginInitContext context;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "6A122269676E40EB86EB543B945932B9";
+            metadata.Name = "Plugin Indicator";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\work.png";
+            metadata.CanDisabled = false;
+        }
+
+
         public List<Result> Query(Query query)
         {
             var results = from keyword in PluginManager.NonGlobalPlugins.Keys
@@ -37,12 +51,17 @@ namespace Saber.Plugin.PluginIndicator
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_pluginindicator_plugin_name");
+            return "插件关键词提示";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_pluginindicator_plugin_description");
+            return "提供插件关键词搜索提示";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

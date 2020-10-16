@@ -200,5 +200,10 @@ namespace Saber.Core.Plugin
         {
             context = ctx;
         }
+
+        public PluginMetadata Metadata()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

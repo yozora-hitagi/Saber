@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Saber.Infrastructure.Storage
 {
-    class WoxJsonStorage<T> : JsonStrorage<T> where T : new()
+    class SaberJsonStorage<T> : JsonStrorage<T> where T : new()
     {
-        public WoxJsonStorage()
+        public SaberJsonStorage()
         {
             var directoryPath = Path.Combine(Constant.DataDirectory, DirectoryName);
             Helper.ValidateDirectory(directoryPath);

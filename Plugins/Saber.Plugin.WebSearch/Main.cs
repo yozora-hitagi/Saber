@@ -23,6 +23,42 @@ namespace Saber.Plugin.WebSearch
         public const string Images = "Images";
         public static string ImagesDirectory;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "565B73353DBF4806919830B9202EE3BF";
+            metadata.Name = "Web Searches";
+            var str = new string[]{
+                        "g",
+                        "wiki",
+                        "findicon",
+                        "facebook",
+                        "twitter",
+                        "maps",
+                        "translate",
+                        "duckduckgo",
+                        "github",
+                        "gist",
+                        "gmail",
+                        "drive",
+                        "wolframalpha",
+                        "stackoverflow",
+                        "lucky",
+                        "image",
+                        "youtube",
+                        "bing",
+                        "yahoo",
+                        "bd"
+            };
+            metadata.ActionKeywords = str.ToList();
+
+            metadata.IcoPath = "Images\\web_search.png";
+
+        }
+
         public void Save()
         {
             _viewModel.Save();
@@ -41,7 +77,7 @@ namespace Saber.Plugin.WebSearch
             {
                 string keyword = query.Search;
                 string title = keyword;
-                string subtitle = _context.API.GetTranslation("wox_plugin_websearch_search") + " " + searchSource.Title;
+                string subtitle = "ËÑË÷" + " " + searchSource.Title;
                 if (string.IsNullOrEmpty(keyword))
                 {
                     var result = new Result
@@ -150,12 +186,17 @@ namespace Saber.Plugin.WebSearch
 
         public string GetTranslatedPluginTitle()
         {
-            return _context.API.GetTranslation("wox_plugin_websearch_plugin_name");
+            return "ÍøÒ³ËÑË÷";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return _context.API.GetTranslation("wox_plugin_websearch_plugin_description");
+            return "Ìá¹©ÍøÒ³ËÑË÷ÄÜÁ¦";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
 
         public event ResultUpdatedEventHandler ResultsUpdated;

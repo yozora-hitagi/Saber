@@ -28,6 +28,19 @@ namespace Saber.Plugin.Program
 
         private static Indexing _indexing;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "791FC278BA414111B8D1886DFE447410";
+            metadata.Name = "Program";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\program.png";
+            metadata.CanDisabled = false;
+        }
+
         public Main()
         {
             _indexing = new Indexing();
@@ -94,7 +107,7 @@ namespace Saber.Plugin.Program
             {new Result
                 {
                     Title = "Reindex",
-                    SubTitle = _context.API.GetTranslation("wox_plugin_program_reindex"),
+                    SubTitle = "重新索引",
                     IcoPath = "Images\\program.png",
                     Action = c =>
                     {
@@ -166,12 +179,12 @@ namespace Saber.Plugin.Program
 
         public string GetTranslatedPluginTitle()
         {
-            return _context.API.GetTranslation("wox_plugin_program_plugin_name");
+            return "程序";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return _context.API.GetTranslation("wox_plugin_program_plugin_description");
+            return "在Saber中搜索程序";
         }
 
         public List<Result> LoadContextMenus(Result selectedResult)
@@ -204,6 +217,11 @@ namespace Saber.Plugin.Program
                 hide = false;
             }
             return hide;
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

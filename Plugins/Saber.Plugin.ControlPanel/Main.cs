@@ -15,6 +15,17 @@ namespace Saber.Plugin.ControlPanel
         private string iconFolder;
         private string fileType;
 
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "209621585B9B4D81813913C507C058C6";
+            metadata.Name = "Control Panel";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\ControlPanel.png";
+        }
+
         public void Init(PluginInitContext context)
         {
             this.context = context;
@@ -96,12 +107,17 @@ namespace Saber.Plugin.ControlPanel
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_controlpanel_plugin_name");
+            return "控制面板";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_controlpanel_plugin_description");
+            return "搜索控制面板";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

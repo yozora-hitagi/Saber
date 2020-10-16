@@ -29,7 +29,7 @@ namespace Saber.Plugin.Folder
             var selectedFolder = lbxFolders.SelectedItem as FolderLink;
             if (selectedFolder != null)
             {
-                string msg = string.Format(woxAPI.GetTranslation("wox_plugin_folder_delete_folder_link"), selectedFolder.Path);
+                string msg = string.Format("删除", selectedFolder.Path);
 
                 if (MessageBox.Show(msg, string.Empty, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -39,8 +39,7 @@ namespace Saber.Plugin.Folder
             }
             else
             {
-                string warning = woxAPI.GetTranslation("wox_plugin_folder_select_folder_link_warning");
-                MessageBox.Show(warning);
+                MessageBox.Show("请选择一个文件夹");
             }
         }
 
@@ -61,8 +60,7 @@ namespace Saber.Plugin.Folder
             }
             else
             {
-                string warning = woxAPI.GetTranslation("wox_plugin_folder_select_folder_link_warning");
-                MessageBox.Show(warning);
+                MessageBox.Show("请选择一个文件夹");
             }
         }
 

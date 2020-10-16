@@ -77,7 +77,7 @@ namespace Saber.Plugin.Program
             var selectedProgramSource = programSourceView.SelectedItem as Settings.ProgramSource;
             if (selectedProgramSource != null)
             {
-                string msg = string.Format(context.API.GetTranslation("wox_plugin_program_delete_program_source"), selectedProgramSource.Location);
+                string msg = string.Format("你确定要删除{0}吗？", selectedProgramSource.Location);
 
                 if (MessageBox.Show(msg, string.Empty, MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
@@ -88,8 +88,7 @@ namespace Saber.Plugin.Program
             }
             else
             {
-                string msg = context.API.GetTranslation("wox_plugin_program_pls_select_program_source");
-                MessageBox.Show(msg);
+                MessageBox.Show("请先选择一项");
             }
         }
 
@@ -115,8 +114,7 @@ namespace Saber.Plugin.Program
             }
             else
             {
-                string msg = context.API.GetTranslation("wox_plugin_program_pls_select_program_source");
-                MessageBox.Show(msg);
+                MessageBox.Show("请先选择一项");
             }
         }
 

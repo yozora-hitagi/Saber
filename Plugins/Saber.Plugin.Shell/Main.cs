@@ -25,6 +25,18 @@ namespace Saber.Plugin.Shell
         private readonly Settings _settings;
         private readonly PluginJsonStorage<Settings> _storage;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "D409510CD0D2481F853690A07E6DC426";
+            metadata.Name = "Shell";
+            metadata.ActionKeyword = ">";
+            metadata.IcoPath = "Images\\shell.png";
+        }
+
         public Main()
         {
             _storage = new PluginJsonStorage<Settings>();
@@ -105,14 +117,14 @@ namespace Saber.Plugin.Shell
                 {
                     if (m.Key == cmd)
                     {
-                        result.SubTitle = string.Format(_context.API.GetTranslation("wox_plugin_cmd_cmd_has_been_executed_times"), m.Value);
+                        result.SubTitle = string.Format("此命令已经被执行了 {0} 次", m.Value);
                         return null;
                     }
 
                     var ret = new Result
                     {
                         Title = m.Key,
-                        SubTitle = string.Format(_context.API.GetTranslation("wox_plugin_cmd_cmd_has_been_executed_times"), m.Value),
+                        SubTitle = string.Format("此命令已经被执行了 {0} 次", m.Value),
                         IcoPath = Image,
                         Action = c =>
                         {
@@ -131,7 +143,7 @@ namespace Saber.Plugin.Shell
             {
                 Title = cmd,
                 Score = 5000,
-                SubTitle = _context.API.GetTranslation("wox_plugin_cmd_execute_through_shell"),
+                SubTitle = "执行此命令",
                 IcoPath = Image,
                 Action = c =>
                 {
@@ -149,7 +161,7 @@ namespace Saber.Plugin.Shell
                 .Select(m => new Result
                 {
                     Title = m.Key,
-                    SubTitle = string.Format(_context.API.GetTranslation("wox_plugin_cmd_cmd_has_been_executed_times"), m.Value),
+                    SubTitle = string.Format("此命令已经被执行了 {0} 次", m.Value),
                     IcoPath = Image,
                     Action = c =>
                     {
@@ -306,12 +318,12 @@ namespace Saber.Plugin.Shell
 
         public string GetTranslatedPluginTitle()
         {
-            return _context.API.GetTranslation("wox_plugin_cmd_plugin_name");
+            return "命令行";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return _context.API.GetTranslation("wox_plugin_cmd_plugin_description");
+            return "提供从Saber中执行命令行的能力，命令应该以>开头";
         }
 
         public List<Result> LoadContextMenus(Result selectedResult)
@@ -320,7 +332,7 @@ namespace Saber.Plugin.Shell
             {
                         new Result
                         {
-                            Title = _context.API.GetTranslation("wox_plugin_cmd_run_as_administrator"),
+                            Title = "以管理员身份运行",
                             Action = c =>
                             {
                                 Execute(selectedResult.Title, true);
@@ -329,6 +341,11 @@ namespace Saber.Plugin.Shell
                             IcoPath = Image
                         }
                      };
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

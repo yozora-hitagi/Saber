@@ -29,7 +29,7 @@ namespace Saber.Plugin.WebSearch
         private void OnDeleteSearchSearchClick(object sender, RoutedEventArgs e)
         {
             var selected = _settings.SelectedSearchSource;
-            var warning = _context.API.GetTranslation("wox_plugin_websearch_delete_warning");
+            var warning = "你确定要删除 {0} 吗？";
             var formated = string.Format(warning, selected.Title);
 
             var result = MessageBox.Show(formated, string.Empty, MessageBoxButton.YesNo);

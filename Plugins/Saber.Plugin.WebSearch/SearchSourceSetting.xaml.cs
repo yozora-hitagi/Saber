@@ -50,18 +50,15 @@ namespace Saber.Plugin.WebSearch
         {
             if (string.IsNullOrEmpty(_searchSource.Title))
             {
-                var warning = _api.GetTranslation("wox_plugin_websearch_input_title");
-                MessageBox.Show(warning);
+                MessageBox.Show("请输入标题");
             }
             else if (string.IsNullOrEmpty(_searchSource.Url))
             {
-                var warning = _api.GetTranslation("wox_plugin_websearch_input_url");
-                MessageBox.Show(warning);
+                MessageBox.Show("请输入URL");
             }
             else if (string.IsNullOrEmpty(_searchSource.ActionKeyword))
             {
-                var warning = _api.GetTranslation("wox_plugin_websearch_input_action_keyword");
-                MessageBox.Show(warning);
+                MessageBox.Show("请输入触发关键字");
             }
             else if (_action == Action.Add)
             {

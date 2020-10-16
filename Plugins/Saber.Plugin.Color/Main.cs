@@ -16,6 +16,17 @@ namespace Saber.Plugin.Color
 
         private DirectoryInfo ColorsDirectory { get; set; }
 
+        private static PluginMetadata metadata;
+
+        static ColorsPlugin()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "9B36CE6181FC47FBB597AA2C29CD9B0A";
+            metadata.Name = "Colors";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\color.png";
+        }
+
         public ColorsPlugin()
         {
             if (!Directory.Exists(DIR_PATH))
@@ -110,12 +121,17 @@ namespace Saber.Plugin.Color
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_color_plugin_name");
+            return "颜色";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_color_plugin_description");
+            return "提供在Saber查询hex颜色。(尝试在Saber中输入#000)";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

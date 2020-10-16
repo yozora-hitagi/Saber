@@ -33,7 +33,10 @@ namespace Saber.Plugin.Program
         {
             get
             {
-                return _text.Last();
+                if (_text.Count > 0)
+                    return _text.Last();
+                else
+                    return "";
             }
 
             set
@@ -76,7 +79,7 @@ namespace Saber.Plugin.Program
 
             Visibility = System.Windows.Visibility.Visible;
 
-            Text=  _context.API.GetTranslation("wox_plugin_program_indexing");
+            Text= "索引中";
 
             var task = Task.Run(() =>
             {
@@ -84,9 +87,9 @@ namespace Saber.Plugin.Program
                 {
                     Infrastructure.Stopwatch.Normal("|Wox.Plugin.Program.Main|Program index cost", index);
 
-                    Text = _context.API.GetTranslation("wox_plugin_program_indexing_ok");
+                    Text = "索引成功";
 
-                    _context.API.ShowMsg(_context.API.GetTranslation("wox_plugin_program_indexing_ok"),"Finish Indexing!",_context.CurrentPluginMetadata.IcoPath);
+                    _context.API.ShowMsg("索引成功", "Finish Indexing!",_context.CurrentPluginMetadata.IcoPath);
                 }
                 catch (Exception e)
                 {
@@ -105,14 +108,14 @@ namespace Saber.Plugin.Program
             var t1 = Task.Run(() =>
             {
                 w = index_win32(Main.Settings());
-                Text = string.Format(_context.API.GetTranslation("wox_plugin_program_indexing_complete"), "Win32");
+                Text = string.Format("完成{0}索引", "Win32");
             });
             var t2 = Task.Run(() =>
             {
                 if (Environment.OSVersion.Version.Major >=10)
                 {
                     u = UWP.All();
-                    Text = string.Format(_context.API.GetTranslation("wox_plugin_program_indexing_complete"), "UWP");
+                    Text = string.Format("完成{0}索引", "UWP");
                 }
             });
             Task.WaitAll(t1, t2);
@@ -128,13 +131,13 @@ namespace Saber.Plugin.Program
             {
                 var appPaths = Win32.AppPathsPrograms(settings.ProgramSuffixes);
                 programs = programs.Concat(appPaths);
-                Text = _context.API.GetTranslation("wox_plugin_program_indexing_complete_registry");
+                Text = "完成注册表索引";
             }
             if (settings.EnableStartMenuSource)
             {
                 var startMenu =Win32.StartMenuPrograms(settings.ProgramSuffixes);
                 programs = programs.Concat(startMenu);
-                Text = _context.API.GetTranslation("wox_plugin_program_indexing_complete_startmenu");
+                Text = "完成开始菜单索引";
             }
             var unregistered = Win32.UnregisteredPrograms(settings.ProgramSources, settings.ProgramSuffixes,this);
 

@@ -6,5 +6,8 @@ namespace Saber.Plugin
     {
         List<Result> Query(Query query);
         void Init(PluginInitContext context);
+
+        PluginMetadata Metadata();
+        
     }
 }

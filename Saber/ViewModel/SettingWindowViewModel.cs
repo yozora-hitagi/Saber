@@ -20,11 +20,11 @@ namespace Saber.ViewModel
 {
     public class SettingWindowViewModel : BaseModel
     {
-        private readonly WoxJsonStorage<Settings> _storage;
+        private readonly SaberJsonStorage<Settings> _storage;
 
         public SettingWindowViewModel()
         {
-            _storage = new WoxJsonStorage<Settings>();
+            _storage = new SaberJsonStorage<Settings>();
             Settings = _storage.Load();
             Settings.PropertyChanged += (s, e) =>
             {

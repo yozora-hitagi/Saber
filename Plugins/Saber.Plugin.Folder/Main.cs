@@ -17,6 +17,18 @@ namespace Saber.Plugin.Folder
         private readonly Settings _settings;
         private readonly PluginJsonStorage<Settings> _storage;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "B4D3B69656E14D44865C8D818EAE47C4";
+            metadata.Name = "Folder";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\folder.png";
+        }
+
         public Main()
         {
             _storage = new PluginJsonStorage<Settings>();
@@ -220,12 +232,17 @@ namespace Saber.Plugin.Folder
 
         public string GetTranslatedPluginTitle()
         {
-            return _context.API.GetTranslation("wox_plugin_folder_plugin_name");
+            return "文件夹";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return _context.API.GetTranslation("wox_plugin_folder_plugin_description");
+            return "在Saber中直接打开收藏的文件夹";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

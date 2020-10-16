@@ -168,5 +168,10 @@
                 }
             });
         }
+
+        public PluginMetadata Metadata()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

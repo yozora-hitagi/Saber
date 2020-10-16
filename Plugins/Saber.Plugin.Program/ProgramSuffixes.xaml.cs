@@ -22,14 +22,12 @@ namespace Saber.Plugin.Program
         {
             if (string.IsNullOrEmpty(tbSuffixes.Text))
             {
-                string warning = context.API.GetTranslation("wox_plugin_program_suffixes_cannot_empty");
-                MessageBox.Show(warning);
+                MessageBox.Show("文件后缀不能为空");
                 return;
             }
 
             _settings.ProgramSuffixes = tbSuffixes.Text.Split(Settings.SuffixSeperator);
-            string msg = context.API.GetTranslation("wox_plugin_program_update_file_suffixes");
-            MessageBox.Show(msg);
+            MessageBox.Show("成功更新索引文件后缀");
         }
     }
 }

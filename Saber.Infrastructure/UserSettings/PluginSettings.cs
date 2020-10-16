@@ -34,6 +34,30 @@ namespace Saber.Infrastructure.UserSettings
                 }
             }
         }
+
+        public void UpdatePluginSettings(PluginMetadata metadata)
+        {
+                if (Plugins.ContainsKey(metadata.ID))
+                {
+                    var settings = Plugins[metadata.ID];
+                    if (settings.ActionKeywords?.Count > 0)
+                    {
+                        metadata.ActionKeywords = settings.ActionKeywords;
+                        metadata.ActionKeyword = settings.ActionKeywords[0];
+                    }
+                    metadata.Disabled = settings.Disabled;
+                }
+                else
+                {
+                    Plugins[metadata.ID] = new Plugin
+                    {
+                        ID = metadata.ID,
+                        Name = metadata.Name,
+                        ActionKeywords = metadata.ActionKeywords,
+                        Disabled = false
+                    };
+                }
+        }
     }
     public class Plugin
     {

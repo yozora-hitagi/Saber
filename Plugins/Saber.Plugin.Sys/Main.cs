@@ -44,6 +44,21 @@ namespace Saber.Plugin.Sys
 
         #endregion
 
+
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "CEA08895D2544B019B2E9C5009600DF4";
+            metadata.Name = "System Commands";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\lock.png";
+            metadata.CanDisabled = false;
+        }
+
+
         public Control CreateSettingPanel()
         {
             var results = Commands();
@@ -81,7 +96,7 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Shutdown",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_shutdown_computer"),
+                    SubTitle = "关闭电脑",
                     IcoPath = "Images\\shutdown.png",
                     Action = c =>
                     {
@@ -97,7 +112,7 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Restart",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_restart_computer"),
+                    SubTitle = "重启电脑",
                     IcoPath = "Images\\restart.png",
                     Action = c =>
                     {
@@ -113,14 +128,14 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Log off",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_log_off"),
+                    SubTitle = "注销",
                     IcoPath = "Images\\logoff.png",
                     Action = c => ExitWindowsEx(EWX_LOGOFF, 0)
                 },
                 new Result
                 {
                     Title = "Lock",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_lock"),
+                    SubTitle = "锁定这台电脑",
                     IcoPath = "Images\\lock.png",
                     Action = c =>
                     {
@@ -131,14 +146,14 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Sleep",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_sleep"),
+                    SubTitle = "休眠这台电脑",
                     IcoPath = "Images\\sleep.png",
                     Action = c => FormsApplication.SetSuspendState(PowerState.Suspend, false, false)
                 },
                 new Result
                 {
                     Title = "Empty Recycle Bin",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_emptyrecyclebin"),
+                    SubTitle = "清空回收站",
                     IcoPath = "Images\\recyclebin.png",
                     Action = c =>
                     {
@@ -158,7 +173,7 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Exit",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_exit"),
+                    SubTitle = "退出Saber",
                     IcoPath = "Images\\app.png",
                     Action = c =>
                     {
@@ -169,7 +184,7 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Restart Saber",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_restart"),
+                    SubTitle = "重启Saber",
                     IcoPath = "Images\\app.png",
                     Action = c =>
                     {
@@ -180,7 +195,7 @@ namespace Saber.Plugin.Sys
                 new Result
                 {
                     Title = "Settings",
-                    SubTitle = context.API.GetTranslation("wox_plugin_sys_setting"),
+                    SubTitle = "设置",
                     IcoPath = "Images\\app.png",
                     Action = c =>
                     {
@@ -194,12 +209,17 @@ namespace Saber.Plugin.Sys
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_sys_plugin_name");
+            return "系统命令";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_sys_plugin_description");
+            return "系统系统相关的命令。例如，关机，锁定，设置等";
+        }
+
+        public PluginMetadata Metadata()
+        {
+           return metadata;
         }
     }
 }

@@ -70,7 +70,7 @@
     <Compile Include="Stopwatch.cs" />
     <Compile Include="Storage\BinaryStorage.cs" />
     <Compile Include="Storage\JsonStorage.cs" />
-    <Compile Include="Storage\WoxJsonStorage.cs" />
+    <Compile Include="Storage\SaberJsonStorage.cs" />
     <Compile Include="StringMatcher.cs" />
     <Compile Include="Http\Http.cs" />
     <Compile Include="FuzzyMatcher.cs" />

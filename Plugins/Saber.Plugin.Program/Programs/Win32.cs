@@ -85,7 +85,7 @@ namespace Saber.Plugin.Program.Programs
             {
                 new Result
                 {
-                    Title = api.GetTranslation("wox_plugin_program_run_as_administrator"),
+                    Title = "以管理员身份运行",
                     Action = _ =>
                     {
                         var info = new ProcessStartInfo
@@ -101,7 +101,7 @@ namespace Saber.Plugin.Program.Programs
                 },
                 new Result
                 {
-                    Title = api.GetTranslation("wox_plugin_program_open_containing_folder"),
+                    Title = "打开所属文件夹",
                     Action = _ =>
                     {
                         var hide = Main.StartProcess(new ProcessStartInfo(ParentDirectory));
@@ -231,7 +231,7 @@ namespace Saber.Plugin.Program.Programs
                     }
                     catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
                     {
-                        _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_access"), d + " " + s);
+                        _indexing.Text = string.Format("索引{0}遇到权限问题", d + " " + s);
                         Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}> <{s}>", e);
                         return new List<string>();
                     }
@@ -242,12 +242,12 @@ namespace Saber.Plugin.Program.Programs
 
                     if (null != _indexing)
                     {
-                        _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_complete"), d + "(" + size + ")");
+                        _indexing.Text = string.Format("完成{0}索引", d + "(" + size + ")");
                     }
                 }
                 catch (Exception e) when (e is SecurityException || e is UnauthorizedAccessException)
                 {
-                    _indexing.Text = string.Format(_indexing._context.API.GetTranslation("wox_plugin_program_indexing_access"), d);
+                    _indexing.Text = string.Format("索引{0}遇到权限问题", d);
                     _indexing.Text = e.Message;
                     Log.Exception($"|Program.Win32.ProgramPaths|Don't have permission on <{d}>", e);
                     return new List<string>();

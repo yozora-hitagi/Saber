@@ -43,6 +43,19 @@ namespace Saber.Plugin.Url
         Regex reg = new Regex(urlPattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
         private PluginInitContext context;
 
+
+        private static PluginMetadata metadata;
+
+        static Main()
+        {
+            metadata = new PluginMetadata();
+            metadata.ID = "0308FD86DE0A4DEE8D62B9B535370992";
+            metadata.Name = "URL";
+            metadata.ActionKeyword = "*";
+            metadata.IcoPath = "Images\\url.png";
+       
+        }
+
         public List<Result> Query(Query query)
         {
             var raw = query.Search;
@@ -53,7 +66,7 @@ namespace Saber.Plugin.Url
                     new Result
                     {
                         Title = raw,
-                        SubTitle = string.Format(context.API.GetTranslation("wox_plugin_url_open_url"),raw),
+                        SubTitle = string.Format("打开链接:{0}",raw),
                         IcoPath = "Images/url.png",
                         Score = 8,
                         Action = _ =>
@@ -69,7 +82,7 @@ namespace Saber.Plugin.Url
                             }
                             catch(Exception ex)
                             {
-                                context.API.ShowMsg(string.Format(context.API.GetTranslation("wox_plugin_url_canot_open_url"), raw));
+                                context.API.ShowMsg(string.Format("无法打开链接:{0}", raw));
                                 return false;
                             }
                         }
@@ -103,12 +116,17 @@ namespace Saber.Plugin.Url
 
         public string GetTranslatedPluginTitle()
         {
-            return context.API.GetTranslation("wox_plugin_url_plugin_name");
+            return "URL";
         }
 
         public string GetTranslatedPluginDescription()
         {
-            return context.API.GetTranslation("wox_plugin_url_plugin_description");
+            return "从Saber打开链接";
+        }
+
+        public PluginMetadata Metadata()
+        {
+            return metadata;
         }
     }
 }

@@ -17,6 +17,9 @@ namespace Saber.Plugin
         public string Description { get; set; }
         public string Website { get; set; }
 
+        /// <summary>
+        /// 是否可以禁用
+        /// </summary>
         public bool CanDisabled { get; set; } = true;
         
         public bool Disabled { get; set; }

@@ -285,7 +285,7 @@ namespace Saber.Plugin.Program.Programs
                 {
                     new Result
                     {
-                        Title = api.GetTranslation("wox_plugin_program_open_containing_folder"),
+                        Title = "打开所属文件夹",
                         Action = _ =>
                         {
                             var hide = Main.StartProcess(new ProcessStartInfo(Package.Location));

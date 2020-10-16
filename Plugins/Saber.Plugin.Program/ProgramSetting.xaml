@@ -14,11 +14,11 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Vertical" Width="310">
-                <CheckBox Name="StartMenuEnabled" Click="StartMenuEnabled_Click" Margin="5" Content="{DynamicResource wox_plugin_program_index_start}" />
-                <CheckBox Name="RegistryEnabled" Click="RegistryEnabled_Click"  Margin="5" Content="{DynamicResource wox_plugin_program_index_registry}" />
+                <CheckBox Name="StartMenuEnabled" Click="StartMenuEnabled_Click" Margin="5" Content="索引开始菜单" />
+                <CheckBox Name="RegistryEnabled" Click="RegistryEnabled_Click"  Margin="5" Content="索引注册表" />
             </StackPanel>
-            <Button Height="30" HorizontalAlignment="Right" x:Name="btnProgramSuffixes" Width="130" Click="BtnProgramSuffixes_OnClick" Content="{DynamicResource wox_plugin_program_suffixes}" />
-            <Button Height="30" HorizontalAlignment="Right" Margin="10 0 0 0" x:Name="btnReindex" Width="100" Click="btnReindex_Click" Content="{DynamicResource wox_plugin_program_reindex}" />
+            <Button Height="30" HorizontalAlignment="Right" x:Name="btnProgramSuffixes" Width="130" Click="BtnProgramSuffixes_OnClick" Content="索引文件后缀" />
+            <Button Height="30" HorizontalAlignment="Right" Margin="10 0 0 0" x:Name="btnReindex" Width="100" Click="btnReindex_Click" Content="重新索引" />
         </StackPanel>
         <StackPanel  Grid.Row="1" Orientation="Horizontal" >
             <ListView x:Name="programSourceView"   AllowDrop="True" Width="580"
@@ -26,7 +26,7 @@
             Drop="programSourceView_Drop" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="{DynamicResource wox_plugin_program_location}" Width="560">
+                        <GridViewColumn Header="位置" Width="560">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Location, ConverterParameter=(null), Converter={program:LocationConverter}}" ToolTip="{Binding Location}"/>
@@ -46,9 +46,9 @@
                 <TextBlock x:Name="messageIndexing" Height="20" Width="200" HorizontalAlignment="Left" Background="LightBlue"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button x:Name="btnDeleteProgramSource" Click="btnDeleteProgramSource_OnClick" Width="100" Margin="10" Content="{DynamicResource wox_plugin_program_delete}"/>
-                <Button x:Name="btnEditProgramSource" Click="btnEditProgramSource_OnClick" Width="100" Margin="10" Content="{DynamicResource wox_plugin_program_edit}"/>
-                <Button x:Name="btnAddProgramSource" Click="btnAddProgramSource_OnClick" Width="100" Margin="10" Content="{DynamicResource wox_plugin_program_add}"/>
+                <Button x:Name="btnDeleteProgramSource" Click="btnDeleteProgramSource_OnClick" Width="100" Margin="10" Content="删除"/>
+                <Button x:Name="btnEditProgramSource" Click="btnEditProgramSource_OnClick" Width="100" Margin="10" Content="编辑"/>
+                <Button x:Name="btnAddProgramSource" Click="btnAddProgramSource_OnClick" Width="100" Margin="10" Content="增加"/>
             </StackPanel>
         </DockPanel>
     </Grid>

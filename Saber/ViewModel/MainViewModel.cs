@@ -29,9 +29,9 @@ namespace Saber.ViewModel
         private Query _lastQuery;
         private string _queryTextBeforeLeaveResults;
 
-        private readonly WoxJsonStorage<History> _historyItemsStorage;
-        private readonly WoxJsonStorage<UserSelectedRecord> _userSelectedRecordStorage;
-        private readonly WoxJsonStorage<TopMostRecord> _topMostRecordStorage;
+        private readonly SaberJsonStorage<History> _historyItemsStorage;
+        private readonly SaberJsonStorage<UserSelectedRecord> _userSelectedRecordStorage;
+        private readonly SaberJsonStorage<TopMostRecord> _topMostRecordStorage;
         private readonly Settings _settings;
         private readonly History _history;
         private readonly UserSelectedRecord _userSelectedRecord;
@@ -56,9 +56,9 @@ namespace Saber.ViewModel
 
             _settings = settings;
 
-            _historyItemsStorage = new WoxJsonStorage<History>();
-            _userSelectedRecordStorage = new WoxJsonStorage<UserSelectedRecord>();
-            _topMostRecordStorage = new WoxJsonStorage<TopMostRecord>();
+            _historyItemsStorage = new SaberJsonStorage<History>();
+            _userSelectedRecordStorage = new SaberJsonStorage<UserSelectedRecord>();
+            _topMostRecordStorage = new SaberJsonStorage<TopMostRecord>();
             _history = _historyItemsStorage.Load();
             _userSelectedRecord = _userSelectedRecordStorage.Load();
             _topMostRecord = _topMostRecordStorage.Load();

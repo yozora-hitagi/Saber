@@ -18,7 +18,7 @@
             <CheckBox IsChecked="{Binding Settings.EnableSuggestion}"
                       Margin="0 10 10 10"
                       Name="EnableSuggestion"
-                      Content="{DynamicResource wox_plugin_websearch_enable_suggestion}" />
+                      Content="启用搜索建议" />
             <ComboBox ItemsSource="{Binding Settings.Suggestions}"
                       SelectedItem="{Binding Settings.SelectedSuggestion}"
                       IsEnabled="{Binding ElementName=EnableSuggestion, Path=IsChecked}" Margin="10" />
@@ -29,14 +29,14 @@
                   Grid.Row="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="{DynamicResource wox_plugin_websearch_action_keyword}">
+                    <GridViewColumn Header="触发关键字">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding ActionKeyword}" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="{DynamicResource wox_plugin_websearch_url}">
+                    <GridViewColumn Header="URL">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Url}" />
@@ -48,11 +48,11 @@
         </ListView>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal">
             <Button Click="OnDeleteSearchSearchClick" Width="100" Margin="10"
-                    Content="{DynamicResource wox_plugin_websearch_delete}" />
+                    Content="删除" />
             <Button Click="OnEditSearchSourceClick" Width="100" Margin="10"
-                    Content="{DynamicResource wox_plugin_websearch_edit}" />
+                    Content="编辑" />
             <Button Click="OnAddSearchSearchClick" Width="100" Margin="10"
-                    Content="{DynamicResource wox_plugin_websearch_add}" />
+                    Content="添加" />
         </StackPanel>
     </Grid>
 </UserControl>
